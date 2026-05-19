@@ -3,223 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Freedom Architect — Your FIRE Plan, Engineered</title>
+<title>Star Riley — The Freedom Architect | FIRE Coaching for High Earners</title>
 <meta name="description" content="A human-led, AI-amplified coaching system that gives high earners and entrepreneurs a clear path to financial independence — with daily accountability built in.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---bg:#090a0c;
---bg-elevated:#111318;
---bg-card:#161921;
---gold:#c8a856;
---gold-dim:#a08836;
---gold-glow:rgba(200,168,86,0.12);
---cream:#f2ece0;
---cream-dim:#b8b0a0;
---text:#d4cfc5;
---text-dim:#8a857b;
---serif:'Playfair Display',Georgia,serif;
---sans:'DM Sans','Segoe UI',sans-serif;
---max:1120px;
---section-py:clamp(80px,10vw,140px);
+--bg:#07080a;
+--bg-2:#0d0f14;
+--bg-3:#12151c;
+--bg-card:#161a24;
+--bg-card-hover:#1a1f2b;
+--gold:#d4a847;
+--gold-light:#e8c76a;
+--gold-dark:#a07e2e;
+--gold-glow:rgba(212,168,71,.1);
+--gold-glow-strong:rgba(212,168,71,.18);
+--cream:#f4efe4;
+--cream-90:rgba(244,239,228,.9);
+--cream-70:rgba(244,239,228,.7);
+--cream-50:rgba(244,239,228,.5);
+--cream-30:rgba(244,239,228,.3);
+--cream-15:rgba(244,239,228,.15);
+--cream-08:rgba(244,239,228,.08);
+--cream-04:rgba(244,239,228,.04);
+--red-soft:#c46b6b;
+--green-soft:#7bc46b;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Outfit','Segoe UI',sans-serif;
+--max:1100px;
+--r:10px;
 }
 html{scroll-behavior:smooth;background:var(--bg)}
-body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--cream-70);background:var(--bg);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--bg)}
 
-/* ═══ UTILITY ═══ */
-.container{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
-.section{padding:var(--section-py) 0}
+/* ═══ ANIMATED BG ═══ */
+.bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.035;animation:drift 20s ease-in-out infinite}
+.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--gold);top:-10%;left:-5%;animation-delay:0s}
+.bg-glow .orb:nth-child(2){width:500px;height:500px;background:#4a6fa5;bottom:-10%;right:-8%;animation-delay:-7s}
+.bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--gold);top:40%;right:20%;animation-delay:-14s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(40px,20px) scale(1.02)}}
+
+/* ═══ GRAIN ═══ */
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;opacity:.022;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ═══ BASE ═══ */
+.container{max-width:var(--max);margin:0 auto;padding:0 clamp(24px,5vw,48px);position:relative;z-index:2}
+.section{padding:clamp(80px,12vw,160px) 0}
 .gold{color:var(--gold)}
-.serif{font-family:var(--serif)}
-.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
-.headline{font-family:var(--serif);color:var(--cream);line-height:1.15;letter-spacing:-.02em}
-.h1{font-size:clamp(2.4rem,5.2vw,4rem);font-weight:700}
-.h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600}
-.h3{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:600}
-.body-lg{font-size:clamp(1.05rem,1.4vw,1.2rem);max-width:680px}
-.body-sm{font-size:.95rem;color:var(--text-dim);line-height:1.65}
-.divider{width:60px;height:2px;background:var(--gold);margin:32px 0;border:none}
+.eyebrow{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:inline-block;position:relative;padding-left:32px}
+.eyebrow::before{content:'';position:absolute;left:0;top:50%;width:20px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--cream);line-height:1.18;letter-spacing:-.01em}
+.h1{font-size:clamp(2.8rem,6vw,4.6rem);font-weight:400}
+.h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:400}
+.h3{font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:500}
+.body-lg{font-size:clamp(1.05rem,1.3vw,1.18rem);max-width:600px;line-height:1.8}
+.divider{width:48px;height:1px;border:none;background:linear-gradient(90deg,var(--gold),var(--gold-dark),transparent);margin:28px 0}
+em{font-style:italic;font-family:var(--serif);color:var(--gold-light)}
 
 /* ═══ BUTTONS ═══ */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:18px 40px;font-family:var(--sans);font-weight:600;font-size:1rem;border:none;border-radius:4px;cursor:pointer;text-decoration:none;transition:all .35s cubic-bezier(.22,1,.36,1)}
-.btn-gold{background:var(--gold);color:var(--bg);box-shadow:0 0 0 0 var(--gold-glow)}
-.btn-gold:hover{background:#d4b45e;box-shadow:0 4px 40px var(--gold-glow);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold-dim)}
-.btn-outline:hover{background:var(--gold-glow);border-color:var(--gold)}
-.btn svg{width:18px;height:18px;fill:currentColor}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-family:var(--sans);font-weight:500;font-size:.92rem;letter-spacing:.03em;border:none;border-radius:6px;cursor:pointer;text-decoration:none;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);box-shadow:0 2px 20px rgba(212,168,71,.15),inset 0 1px 0 rgba(255,255,255,.15)}
+.btn-gold:hover{box-shadow:0 8px 40px rgba(212,168,71,.25),inset 0 1px 0 rgba(255,255,255,.2);transform:translateY(-2px)}
+.btn-gold::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transition:left .5s ease}
+.btn-gold:hover::after{left:100%}
+.btn-ghost{background:transparent;color:var(--cream-70);border:1px solid var(--cream-15);backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:var(--gold-dark);color:var(--gold-light);background:var(--gold-glow)}
+.btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
 
-/* ═══ GRAIN OVERLAY ═══ */
-body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-opacity:.028}
-
-/* ═══ SCROLL REVEAL ═══ */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.12s}
-.reveal-delay-2{transition-delay:.24s}
-.reveal-delay-3{transition-delay:.36s}
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ═══ NAV ═══ */
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:20px 0;transition:all .4s ease}
-nav.scrolled{background:rgba(9,10,12,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,168,86,.08);padding:14px 0}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--cream);text-decoration:none;letter-spacing:-.01em}
-.nav-logo span{color:var(--gold)}
-.nav-cta{padding:10px 24px;font-size:.85rem}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:24px 0;transition:all .5s ease}
+nav.scrolled{padding:14px 0;background:rgba(7,8,10,.88);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--cream-04)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.nav-brand{text-decoration:none;display:flex;flex-direction:column;line-height:1.15}
+.nav-name{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--cream)}
+.nav-title{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark)}
+.nav-cta{padding:10px 24px;font-size:.82rem}
 
 /* ═══ HERO ═══ */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:100px;padding-bottom:80px}
-.hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse at 70% 30%,rgba(200,168,86,.06) 0%,transparent 65%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(200,168,86,.2);border-radius:100px;font-size:.8rem;color:var(--gold);margin-bottom:24px;background:rgba(200,168,86,.04)}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero .headline{margin-bottom:24px}
-.hero .body-lg{margin-bottom:40px;color:var(--text)}
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
-.hero-metric{display:flex;gap:48px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(200,168,86,.1)}
-.metric{text-align:left}
-.metric-number{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.2rem);color:var(--cream);font-weight:700}
-.metric-label{font-size:.8rem;color:var(--text-dim);margin-top:4px}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:80px;position:relative}
+.hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cream-08),transparent)}
+.hero-content{max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 18px 7px 14px;border:1px solid var(--gold-glow-strong);border-radius:100px;font-size:.78rem;font-weight:500;color:var(--gold);margin-bottom:32px;background:linear-gradient(135deg,rgba(212,168,71,.06),rgba(212,168,71,.02));backdrop-filter:blur(8px)}
+.hero-badge .dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulse 2.5s ease-in-out infinite;box-shadow:0 0 8px var(--gold-glow-strong)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{margin-bottom:28px}
+.hero h1 .line{display:block}
+.hero .body-lg{margin-bottom:44px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:flex;gap:40px;padding-top:40px;border-top:1px solid var(--cream-04)}
+.stat{position:relative;padding-left:16px}
+.stat::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--gold),transparent)}
+.stat-val{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.9rem);color:var(--cream);font-weight:500;letter-spacing:-.02em}
+.stat-lbl{font-size:.72rem;color:var(--cream-30);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
 
 /* ═══ PROBLEM ═══ */
-.problem{background:var(--bg-elevated);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03)}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.problem-list{list-style:none;display:flex;flex-direction:column;gap:20px}
-.problem-list li{padding-left:28px;position:relative;font-size:1.05rem;color:var(--text)}
-.problem-list li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:10px;border:2px solid var(--gold-dim);border-radius:2px;transform:rotate(45deg)}
+.problem{background:var(--bg-2);position:relative}
+.problem::before,.problem::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cream-08),transparent)}
+.problem::before{top:0}.problem::after{bottom:0}
+.problem-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.pain-list li{padding:16px 20px;border-left:2px solid var(--cream-08);font-size:.95rem;transition:all .3s ease;color:var(--cream-50)}
+.pain-list li:hover{border-left-color:var(--gold);color:var(--cream-70);background:var(--gold-glow);padding-left:24px}
 
-/* ═══ MECHANISM ═══ */
-.mechanism-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px}
-.step-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color .3s ease}
-.step-card:hover{border-color:rgba(200,168,86,.15)}
-.step-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s ease}
-.step-card:hover::before{opacity:1}
-.step-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);opacity:.25;margin-bottom:12px;line-height:1}
-.step-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--cream);margin-bottom:10px}
-.step-card p{font-size:.9rem;color:var(--text-dim);line-height:1.6}
+/* ═══ SYSTEM ═══ */
+.system-intro{text-align:center;max-width:680px;margin:0 auto 60px}
+.system-intro .body-lg{margin:0 auto}
+.system-intro .divider{margin:28px auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:linear-gradient(160deg,var(--bg-card),var(--bg-3));border:1px solid var(--cream-04);border-radius:var(--r);padding:32px 26px;position:relative;transition:all .4s ease;overflow:hidden}
+.step:hover{border-color:var(--cream-08);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.step::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-glow-strong),transparent);opacity:0;transition:opacity .4s}
+.step:hover::before{opacity:1}
+.step-num{font-family:var(--serif);font-size:3rem;font-weight:400;background:linear-gradient(180deg,var(--gold-dark),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:14px}
+.step h3{font-size:1.08rem;font-weight:500;color:var(--cream);margin-bottom:10px}
+.step p{font-size:.86rem;color:var(--cream-50);line-height:1.7}
 
-/* ═══ AI SECTION ═══ */
-.ai-section{background:var(--bg-elevated)}
-.ai-features{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
-.ai-feature{display:flex;gap:16px;align-items:flex-start}
-.ai-icon{width:44px;height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;background:var(--gold-glow);border:1px solid rgba(200,168,86,.15);border-radius:8px;color:var(--gold);font-size:1.2rem}
-.ai-feature h3{font-size:1rem;color:var(--cream);margin-bottom:6px;font-weight:600}
-.ai-feature p{font-size:.88rem;color:var(--text-dim);line-height:1.6}
+/* ═══ AI ═══ */
+.ai{background:var(--bg-2);position:relative}
+.ai::before,.ai::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cream-08),transparent)}
+.ai::before{top:0}.ai::after{bottom:0}
+.ai-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.ai-text{max-width:480px}
+.ai-cards{display:flex;flex-direction:column;gap:16px}
+.ai-card{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:var(--r);border:1px solid var(--cream-04);background:linear-gradient(135deg,var(--bg-card),transparent);transition:all .3s ease}
+.ai-card:hover{border-color:var(--cream-08);background:var(--bg-card-hover)}
+.ai-card .icon{width:40px;height:40px;min-width:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(135deg,var(--gold-glow-strong),var(--gold-glow));border:1px solid rgba(212,168,71,.12);font-size:1.1rem}
+.ai-card h4{font-family:var(--sans);font-size:.92rem;font-weight:600;color:var(--cream);margin-bottom:4px}
+.ai-card p{font-size:.82rem;color:var(--cream-50);line-height:1.65}
 
 /* ═══ OFFERS ═══ */
-.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:48px}
-.offer-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:40px 32px;position:relative;transition:transform .3s ease,border-color .3s ease}
-.offer-card:hover{transform:translateY(-4px)}
-.offer-card.featured{border-color:var(--gold-dim);box-shadow:0 0 60px rgba(200,168,86,.06)}
-.offer-card.featured::after{content:'MOST POPULAR';position:absolute;top:0;right:24px;background:var(--gold);color:var(--bg);font-size:.65rem;font-weight:700;letter-spacing:.12em;padding:6px 12px;border-radius:0 0 6px 6px}
-.offer-tier{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.offer-name{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin-bottom:6px}
-.offer-price{font-size:1.1rem;color:var(--text);margin-bottom:20px}
-.offer-price strong{font-family:var(--serif);font-size:2rem;color:var(--cream)}
-.offer-includes{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
-.offer-includes li{font-size:.9rem;color:var(--text);padding-left:24px;position:relative}
-.offer-includes li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;font-size:.85rem}
+.offers-intro{text-align:center;max-width:600px;margin:0 auto 56px}
+.offers-intro .divider{margin:28px auto}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.offer{background:linear-gradient(170deg,var(--bg-card),var(--bg-3));border:1px solid var(--cream-04);border-radius:var(--r);padding:36px 28px;transition:all .4s ease;position:relative}
+.offer:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.offer.pop{border-color:rgba(212,168,71,.2);box-shadow:0 0 80px rgba(212,168,71,.04)}
+.offer.pop::before{content:'MOST POPULAR';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:.6rem;font-weight:700;letter-spacing:.14em;padding:5px 14px;border-radius:0 0 6px 6px}
+.offer-tier{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:4px}
+.offer-name{font-family:var(--serif);font-size:1.4rem;color:var(--cream);margin-bottom:4px;font-weight:500}
+.offer-price{font-size:.95rem;color:var(--cream-50);margin-bottom:24px}
+.offer-price strong{font-family:var(--serif);font-size:2.2rem;color:var(--cream);font-weight:500}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;padding:20px 0;border-top:1px solid var(--cream-04)}
+.offer-list li{font-size:.84rem;color:var(--cream-50);padding-left:22px;position:relative;line-height:1.55}
+.offer-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:4px;border-left:2px solid var(--gold-dark);border-bottom:2px solid var(--gold-dark);transform:rotate(-45deg)}
+.offer .btn{width:100%;justify-content:center;margin-top:20px}
 
-/* ═══ TRANSFORMATION ═══ */
-.transform-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:start;margin-top:48px}
-.transform-col{background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:36px 32px}
-.transform-col.before{border-color:rgba(180,60,60,.15)}
-.transform-col.after{border-color:rgba(200,168,86,.15)}
-.transform-arrow{display:flex;align-items:center;justify-content:center;align-self:center;color:var(--gold);font-size:2rem}
-.transform-col h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:20px}
-.transform-col.before h3{color:#c06060}
-.transform-col.after h3{color:var(--gold)}
-.transform-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
-.transform-col ul li{font-size:.92rem;color:var(--text-dim);padding-left:20px;position:relative}
-.transform-col.before ul li::before{content:'—';position:absolute;left:0;color:#c06060}
-.transform-col.after ul li::before{content:'→';position:absolute;left:0;color:var(--gold)}
+/* ═══ TRANSFORM ═══ */
+.transform{background:var(--bg-2);position:relative}
+.transform::before,.transform::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cream-08),transparent)}
+.transform::before{top:0}.transform::after{bottom:0}
+.transform-intro{text-align:center;max-width:600px;margin:0 auto 56px}
+.transform-intro .divider{margin:28px auto}
+.t-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:start}
+.t-col{background:var(--bg-card);border:1px solid var(--cream-04);border-radius:var(--r);padding:32px 28px}
+.t-col.before{border-color:rgba(196,107,107,.12)}
+.t-col.after{border-color:rgba(212,168,71,.12)}
+.t-col h3{font-size:1.15rem;margin-bottom:20px;font-weight:500}
+.t-col.before h3{color:var(--red-soft)}
+.t-col.after h3{color:var(--gold)}
+.t-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.t-col ul li{font-size:.88rem;color:var(--cream-50);padding-left:18px;position:relative;line-height:1.6}
+.t-col.before li::before{content:'×';position:absolute;left:0;color:var(--red-soft);font-weight:700;font-size:.9rem}
+.t-col.after li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:.8rem}
+.t-arrow{display:flex;align-items:center;justify-content:center;padding:0 24px;color:var(--gold-dark);font-family:var(--serif);font-size:2rem;align-self:center}
 
-/* ═══ SOCIAL PROOF ═══ */
-.proof{background:var(--bg-elevated)}
-.proof-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
-.proof-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:32px 28px}
-.proof-card blockquote{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--cream);line-height:1.65;margin-bottom:20px}
-.proof-card cite{font-style:normal;font-size:.85rem;color:var(--text-dim);display:flex;align-items:center;gap:10px}
-.proof-card cite::before{content:'';width:20px;height:1px;background:var(--gold-dim)}
+/* ═══ PROOF ═══ */
+.proof-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.proof-card{background:linear-gradient(160deg,var(--bg-card),var(--bg-3));border:1px solid var(--cream-04);border-radius:var(--r);padding:28px 24px}
+.proof-card blockquote{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--cream-90);line-height:1.65;margin-bottom:18px}
+.proof-card cite{font-style:normal;font-family:var(--sans);font-size:.75rem;color:var(--cream-30);letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.proof-card cite::before{content:'';width:16px;height:1px;background:var(--gold-dark)}
 
 /* ═══ FAQ ═══ */
-.faq-list{max-width:740px;margin:48px auto 0;display:flex;flex-direction:column;gap:2px}
-.faq-item{background:var(--bg-card);border:1px solid rgba(255,255,255,.03);overflow:hidden}
-.faq-item:first-child{border-radius:10px 10px 0 0}
-.faq-item:last-child{border-radius:0 0 10px 10px}
-.faq-q{width:100%;background:none;border:none;color:var(--cream);font-family:var(--sans);font-size:1.02rem;font-weight:500;text-align:left;padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s}
-.faq-q:hover{color:var(--gold)}
-.faq-q::after{content:'+';font-size:1.4rem;color:var(--gold-dim);transition:transform .3s}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
-.faq-item.open .faq-a{max-height:400px;padding:0 28px 22px}
-.faq-a p{font-size:.92rem;color:var(--text-dim);line-height:1.7}
+.faq-wrap{max-width:700px;margin:56px auto 0}
+.faq{border:1px solid var(--cream-04);border-radius:var(--r);overflow:hidden;background:var(--bg-card)}
+.faq-item{border-bottom:1px solid var(--cream-04)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;color:var(--cream-90);font-family:var(--sans);font-size:.95rem;font-weight:500;text-align:left;padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:all .3s}
+.faq-q:hover{color:var(--gold-light)}
+.faq-q .plus{width:20px;height:20px;position:relative;flex-shrink:0}
+.faq-q .plus::before,.faq-q .plus::after{content:'';position:absolute;background:var(--gold-dark);border-radius:1px;transition:transform .3s}
+.faq-q .plus::before{width:12px;height:1.5px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-q .plus::after{width:1.5px;height:12px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-item.open .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:0 24px 20px;font-size:.88rem;color:var(--cream-50);line-height:1.75}
 
-/* ═══ FINAL CTA ═══ */
-.final-cta{text-align:center;position:relative}
-.final-cta::before{content:'';position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,168,86,.06) 0%,transparent 70%);pointer-events:none}
-.final-cta .headline{margin-bottom:20px}
-.final-cta .body-lg{margin:0 auto 40px;text-align:center}
+/* ═══ APPLICATION FORM ═══ */
+.apply-section{background:var(--bg-2);position:relative}
+.apply-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cream-08),transparent)}
+.apply-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.apply-text{max-width:440px}
+.apply-form{background:linear-gradient(160deg,var(--bg-card),var(--bg-3));border:1px solid var(--cream-04);border-radius:var(--r);padding:36px 32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cream-50);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:var(--bg-2);border:1px solid var(--cream-08);border-radius:6px;color:var(--cream);font-family:var(--sans);font-size:.9rem;transition:border-color .3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold-dark)}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23a07e2e' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-group select option{background:var(--bg-card);color:var(--cream)}
+.form-group textarea{min-height:80px;resize:vertical}
+.form-note{font-size:.75rem;color:var(--cream-30);margin-top:16px;line-height:1.6}
 
 /* ═══ FOOTER ═══ */
-footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.04)}
-footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer p{font-size:.8rem;color:var(--text-dim)}
-footer a{color:var(--text-dim);text-decoration:none;font-size:.8rem}
+footer{padding:40px 0;border-top:1px solid var(--cream-04)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-size:.75rem;color:var(--cream-30)}
+footer a{color:var(--cream-30);text-decoration:none;font-size:.75rem;transition:color .2s}
 footer a:hover{color:var(--gold)}
 
 /* ═══ RESPONSIVE ═══ */
-@media(max-width:768px){
-.problem-grid,.ai-features{grid-template-columns:1fr;gap:32px}
-.hero-metric{flex-direction:column;gap:24px}
-.transform-grid{grid-template-columns:1fr;gap:24px}
-.transform-arrow{transform:rotate(90deg)}
-.offer-grid{grid-template-columns:1fr}
+@media(max-width:900px){
+.steps,.offer-grid,.proof-cards{grid-template-columns:1fr 1fr}
+.offer.pop::before{left:28px;transform:none}
+}
+@media(max-width:680px){
+.problem-layout,.ai-layout,.apply-layout{grid-template-columns:1fr}
+.steps,.offer-grid,.proof-cards{grid-template-columns:1fr}
+.t-grid{grid-template-columns:1fr;gap:20px}
+.t-arrow{transform:rotate(90deg);padding:0;justify-self:center}
+.hero-stats{flex-direction:column;gap:20px}
 }
 </style>
 </head>
 <body>
 
+<div class="bg-glow"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+
 <!-- NAV -->
 <nav id="nav">
 <div class="container">
-<a href="#" class="nav-logo">The Freedom <span>Architect</span></a>
+<div class="nav-inner">
+<a href="#" class="nav-brand">
+<span class="nav-name">Star Riley</span>
+<span class="nav-title">The Freedom Architect</span>
+</a>
 <a href="#apply" class="btn btn-gold nav-cta">Apply Now</a>
+</div>
 </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero section">
 <div class="container">
-<div class="hero-grid">
-<div>
-<div class="hero-badge">
+<div class="hero-content">
+<div class="hero-badge reveal">
+<span class="dot"></span>
 <span>Now Accepting Founding Members</span>
 </div>
-<h1 class="headline h1 reveal">Your income is high.<br>Your freedom is <em class="gold">not</em>.</h1>
-<p class="body-lg reveal reveal-delay-1">The Freedom Architect is a human-led, AI-amplified coaching system that gives high earners and entrepreneurs a clear, executable path to financial independence — with daily accountability that actually works.</p>
-<div class="hero-ctas reveal reveal-delay-2">
-<a href="#apply" class="btn btn-gold">Apply for Your FIRE Plan Session <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
-<a href="#how" class="btn btn-outline">See How It Works</a>
+<h1 class="h1 reveal d1">
+<span class="line">Your income is high.</span>
+<span class="line">Your freedom is <em>not</em>.</span>
+</h1>
+<p class="body-lg reveal d2">I built a coaching system that gives high earners and entrepreneurs a clear, executable path to financial independence — with AI-powered daily accountability that actually keeps you moving.</p>
+<div class="hero-ctas reveal d3">
+<a href="#apply" class="btn btn-gold">Apply for Your FIRE Plan Session <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="#system" class="btn btn-ghost">See How It Works</a>
 </div>
-<div class="hero-metric reveal reveal-delay-3">
-<div class="metric">
-<div class="metric-number">90 Days</div>
-<div class="metric-label">To your first measurable milestone</div>
+<div class="hero-stats reveal d4">
+<div class="stat">
+<div class="stat-val">90 Days</div>
+<div class="stat-lbl">To first milestone</div>
 </div>
-<div class="metric">
-<div class="metric-number">24/7</div>
-<div class="metric-label">AI coaching between sessions</div>
+<div class="stat">
+<div class="stat-val">24 / 7</div>
+<div class="stat-lbl">AI coaching access</div>
 </div>
-<div class="metric">
-<div class="metric-number">Daily</div>
-<div class="metric-label">Accountability built into the system</div>
-</div>
+<div class="stat">
+<div class="stat-val">Daily</div>
+<div class="stat-lbl">Accountability built in</div>
 </div>
 </div>
 </div>
@@ -229,107 +292,107 @@ footer a:hover{color:var(--gold)}
 <!-- PROBLEM -->
 <section class="problem section">
 <div class="container">
-<div class="problem-grid">
+<div class="problem-layout">
 <div class="reveal">
 <span class="eyebrow">The Problem</span>
-<h2 class="headline h2">You earn great money.<br>But you're not <em class="gold">free</em>.</h2>
+<h2 class="h2">You did everything right. And you're still <em>trapped</em>.</h2>
 <hr class="divider">
-<p class="body-lg" style="margin-top:20px;">You've done everything right — the degree, the career, the income. But somewhere along the way, the golden handcuffs locked in. And now you're making more than ever while feeling more trapped than ever.</p>
+<p class="body-lg">You've built the career, hit the income, earned the title. But somewhere between the promotions and the lifestyle inflation, freedom got further away — not closer.</p>
 </div>
-<div class="reveal reveal-delay-1">
-<ul class="problem-list">
+<ul class="pain-list reveal d2">
 <li>No clear exit plan, even though you've been "thinking about it" for years</li>
-<li>High income, but lifestyle inflation ate the gap between earning and freedom</li>
+<li>High income, but nothing to show for it except more obligations</li>
 <li>Sunday-night dread is your default setting</li>
-<li>You know FIRE exists, but the spreadsheets don't stick and the plans never last</li>
-<li>Every coach you've found either sells motivation or sells a course — not a system</li>
-<li>You don't need more information. You need structure, accountability, and a strategy that runs daily</li>
+<li>You know about FIRE — but the spreadsheets don't stick and the plans never last</li>
+<li>Every coach you've found sells motivation or sells a course — not a system</li>
+<li>You don't need more information. You need structure that runs daily</li>
 </ul>
 </div>
 </div>
-</div>
 </section>
 
-<!-- BRIDGE / MECHANISM -->
-<section class="section" id="how">
+<!-- SYSTEM -->
+<section class="section" id="system">
 <div class="container">
-<div class="reveal" style="text-align:center;max-width:740px;margin:0 auto 0">
+<div class="system-intro reveal">
 <span class="eyebrow">The System</span>
-<h2 class="headline h2">This isn't coaching plus AI.<br>It's a <em class="gold">Daily Freedom Operating System</em>.</h2>
-<hr class="divider" style="margin:32px auto">
-<p class="body-lg" style="margin:0 auto">Most coaching programs give you a call every week and hope you execute. This one gives you a system that touches you every single day — tracking your progress, nudging your behavior, and escalating to a human coach when it matters.</p>
+<h2 class="h2">This isn't coaching plus AI.<br>It's a <em>Daily Freedom Operating System</em>.</h2>
+<hr class="divider">
+<p class="body-lg">Most coaching gives you a weekly call and hopes you execute. This gives you a system that touches you every single day — tracking progress, nudging behavior, and escalating to a human coach when it matters.</p>
 </div>
-<div class="mechanism-steps reveal reveal-delay-1">
-<div class="step-card">
+<div class="steps">
+<div class="step reveal">
 <div class="step-num">01</div>
 <h3>Morning Clarity</h3>
-<p>Every day starts with a check-in. Your #1 priority. Your focus level. Your intention. The AI captures it and builds your pattern over time.</p>
+<p>Start every day with a check-in. Your #1 priority. Your focus score. Your intention. The AI captures it and builds your pattern over time.</p>
 </div>
-<div class="step-card">
+<div class="step reveal d1">
 <div class="step-num">02</div>
 <h3>Daily Execution</h3>
-<p>The system tracks whether you're moving on your priorities. If you stall, it nudges. If you're blocked, it helps you break through.</p>
+<p>The system tracks your movement on priorities. If you stall, it nudges. If you're blocked, it helps you break through before the day is gone.</p>
 </div>
-<div class="step-card">
+<div class="step reveal d2">
 <div class="step-num">03</div>
 <h3>Evening Review</h3>
-<p>Rate your day. Capture your wins. Identify what you'd change. This data compounds into a picture of exactly how you operate.</p>
+<p>Rate your day. Log your wins. Name what you'd change. This data compounds into a precise picture of how you operate — and where to improve.</p>
 </div>
-<div class="step-card">
+<div class="step reveal d3">
 <div class="step-num">04</div>
 <h3>Weekly Scorecard</h3>
-<p>Every Sunday: your completion rate, focus trend, wins, and a recommendation for next week — generated automatically from your own data.</p>
+<p>Every Sunday: completion rate, focus trend, wins captured, and a recommendation for next week — generated from your own data automatically.</p>
 </div>
-<div class="step-card">
+<div class="step reveal d4">
 <div class="step-num">05</div>
-<h3>Live Coaching</h3>
-<p>Your coach walks into every session already briefed on your week. No warm-up. No "so what did you work on?" Pure strategy from minute one.</p>
+<h3>Briefed Coaching</h3>
+<p>Your coach walks into every session already knowing your week. No warm-up. No "what did you work on?" Pure strategy from minute one.</p>
 </div>
-<div class="step-card">
+<div class="step reveal">
 <div class="step-num">06</div>
 <h3>Smart Escalation</h3>
-<p>If the AI detects you're disengaging, struggling, or stuck on something it can't solve — it flags your coach immediately. No one falls through the cracks.</p>
+<p>If the AI detects disengagement, struggle, or something it can't solve — it flags your human coach immediately. Nobody falls through cracks.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- AI SECTION -->
-<section class="ai-section section">
+<!-- AI -->
+<section class="ai section">
 <div class="container">
-<div class="reveal" style="max-width:640px">
-<span class="eyebrow">The AI Coaching Layer</span>
-<h2 class="headline h2">A coach in your pocket.<br><em class="gold">Every single day.</em></h2>
+<div class="ai-layout">
+<div class="ai-text reveal">
+<span class="eyebrow">The AI Layer</span>
+<h2 class="h2">A coach in your pocket. <em>Every single day.</em></h2>
 <hr class="divider">
-<p class="body-lg" style="margin-top:20px">Premium clients get access to an AI coach trained in the founder's frameworks, tone, and methodology. It doesn't replace the human relationship — it extends it into every moment between sessions.</p>
+<p class="body-lg">Premium clients get access to an AI coach trained in my frameworks, tone, and methodology. It doesn't replace the human relationship — it extends it into every moment between sessions.</p>
 </div>
-<div class="ai-features reveal reveal-delay-1">
-<div class="ai-feature">
-<div class="ai-icon">⚡</div>
+<div class="ai-cards">
+<div class="ai-card reveal">
+<div class="icon">⚡</div>
 <div>
-<h3>Instant Framework Access</h3>
-<p>Ask any question about your FIRE plan, investment logic, or next move — and get an answer grounded in the coaching methodology, not generic advice.</p>
+<h4>Instant Framework Access</h4>
+<p>Ask any question about your FIRE plan, investment thinking, or next move — grounded in the coaching methodology, not generic advice.</p>
 </div>
 </div>
-<div class="ai-feature">
-<div class="ai-icon">🎯</div>
+<div class="ai-card reveal d1">
+<div class="icon">🎯</div>
 <div>
-<h3>Personalized Nudges</h3>
-<p>The AI learns your patterns. It knows when you tend to stall, what language motivates you, and when to push vs. when to support.</p>
+<h4>Personalized Nudges</h4>
+<p>The AI learns your patterns — when you stall, what motivates you, and when to push versus when to support.</p>
 </div>
 </div>
-<div class="ai-feature">
-<div class="ai-icon">📊</div>
+<div class="ai-card reveal d2">
+<div class="icon">📊</div>
 <div>
-<h3>Progress Intelligence</h3>
-<p>Weekly summaries, monthly trend reports, and quarterly reviews — all generated from your actual daily data. Your progress becomes undeniable.</p>
+<h4>Progress Intelligence</h4>
+<p>Weekly summaries, monthly trends, quarterly reviews. All generated from your actual daily data. Progress becomes undeniable.</p>
 </div>
 </div>
-<div class="ai-feature">
-<div class="ai-icon">🔒</div>
+<div class="ai-card reveal d3">
+<div class="icon">🛡️</div>
 <div>
-<h3>Human Escalation Built In</h3>
-<p>The AI knows its limits. Complex decisions, emotional moments, and strategic pivots always route to your human coach — with full context attached.</p>
+<h4>Human Escalation Built In</h4>
+<p>Complex decisions, emotional moments, strategic pivots — these always route to your human coach with full context attached.</p>
+</div>
 </div>
 </div>
 </div>
@@ -339,174 +402,219 @@ footer a:hover{color:var(--gold)}
 <!-- OFFERS -->
 <section class="section" id="offers">
 <div class="container">
-<div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-<span class="eyebrow">Choose Your Path</span>
-<h2 class="headline h2">Three tiers. One outcome: <em class="gold">freedom</em>.</h2>
-<hr class="divider" style="margin:32px auto">
+<div class="offers-intro reveal">
+<span class="eyebrow">The Offer</span>
+<h2 class="h2">Three paths. One destination: <em>freedom</em>.</h2>
+<hr class="divider">
 </div>
-<div class="offer-grid reveal reveal-delay-1">
-<!-- TIER 1 -->
-<div class="offer-card">
+<div class="offer-grid">
+<div class="offer reveal">
 <div class="offer-tier">Tier 1</div>
 <div class="offer-name">FIRE Accelerator</div>
 <div class="offer-price"><strong>$5,000</strong> / 6 months</div>
-<ul class="offer-includes">
-<li>2x/month live group coaching calls</li>
+<ul class="offer-list">
+<li>2x/month group coaching calls</li>
 <li>Private community access</li>
-<li>Full FIRE roadmap build</li>
-<li>Daily AI check-ins and prompts</li>
+<li>Full personalized FIRE roadmap</li>
+<li>Daily AI check-ins &amp; prompts</li>
 <li>Weekly AI-generated scorecard</li>
-<li>Curriculum vault access (modules, calculators, worksheets)</li>
+<li>Curriculum vault (modules, calculators)</li>
 <li>Monthly hot-seat rotation</li>
 </ul>
-<a href="#apply" class="btn btn-outline" style="width:100%;justify-content:center">Apply Now</a>
+<a href="#apply" class="btn btn-ghost">Apply</a>
 </div>
-<!-- TIER 2 -->
-<div class="offer-card featured">
+<div class="offer pop reveal d1">
 <div class="offer-tier">Tier 2</div>
 <div class="offer-name">FIRE Architect</div>
 <div class="offer-price"><strong>$15,000</strong> / 6 months</div>
-<ul class="offer-includes">
-<li>Everything in Accelerator, plus:</li>
-<li>2x/month private 1:1 coaching calls</li>
+<ul class="offer-list">
+<li>Everything in Accelerator, plus</li>
+<li>2x/month private 1:1 calls</li>
 <li>Custom financial architecture review</li>
-<li>Direct async access to the coach</li>
-<li>AI Avatar Coach — 24/7 between-session support</li>
+<li>Direct async access to Star</li>
+<li>AI Avatar Coach — 24/7 support</li>
 <li>Quarterly deep-dive strategy session</li>
 <li>Done-with-you implementation sprints</li>
 </ul>
-<a href="#apply" class="btn btn-gold" style="width:100%;justify-content:center">Apply Now</a>
+<a href="#apply" class="btn btn-gold">Apply</a>
 </div>
-<!-- TIER 3 -->
-<div class="offer-card">
+<div class="offer reveal d2">
 <div class="offer-tier">Tier 3</div>
 <div class="offer-name">FIRE Command</div>
 <div class="offer-price"><strong>$50,000</strong> / 12 months</div>
-<ul class="offer-includes">
-<li>Everything in Architect, plus:</li>
-<li>Weekly private 1:1 coaching</li>
-<li>Full business + personal financial audit</li>
-<li>Access to founder's private network</li>
-<li>Custom-trained AI layer for your goals</li>
-<li>Quarterly intensive (half-day session)</li>
-<li>Priority access to all future programs</li>
+<ul class="offer-list">
+<li>Everything in Architect, plus</li>
+<li>Weekly private 1:1 calls</li>
+<li>Full business + personal audit</li>
+<li>Access to Star's private network</li>
+<li>Custom-trained AI for your goals</li>
+<li>Quarterly half-day intensive</li>
+<li>Priority access to future programs</li>
 </ul>
-<a href="#apply" class="btn btn-outline" style="width:100%;justify-content:center">Apply Now</a>
+<a href="#apply" class="btn btn-ghost">Apply</a>
 </div>
 </div>
 </div>
 </section>
 
 <!-- TRANSFORMATION -->
-<section class="section" style="background:var(--bg-elevated)">
+<section class="transform section">
 <div class="container">
-<div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+<div class="transform-intro reveal">
 <span class="eyebrow">The Transformation</span>
-<h2 class="headline h2">From trapped to <em class="gold">architected</em>.</h2>
-<hr class="divider" style="margin:32px auto">
+<h2 class="h2">From trapped to <em>architected</em>.</h2>
+<hr class="divider">
 </div>
-<div class="transform-grid reveal reveal-delay-1">
-<div class="transform-col before">
+<div class="t-grid reveal d1">
+<div class="t-col before">
 <h3>Before</h3>
 <ul>
-<li>Vague idea of net worth, no FIRE number</li>
-<li>Reactive, urgent-driven days with no design</li>
+<li>Vague net worth, no FIRE number, no timeline</li>
+<li>Reactive, urgent-driven days without design</li>
 <li>Trapped in a role or business that owns you</li>
-<li>Income dependent, no passive streams</li>
+<li>Income dependent, no passive streams building</li>
 <li>Identity defined by title and busyness</li>
-<li>Self-managed accountability (inconsistent)</li>
-<li>Anxious, stuck, Sunday-dread cycle</li>
+<li>Self-managed accountability that never sticks</li>
+<li>Anxious, stuck, Sunday-dread on repeat</li>
 </ul>
 </div>
-<div class="transform-arrow">→</div>
-<div class="transform-col after">
+<div class="t-arrow">→</div>
+<div class="t-col after">
 <h3>After</h3>
 <ul>
 <li>Exact FIRE number, target date, weekly plan</li>
 <li>Morning clarity ritual, priority-locked days</li>
 <li>Clear exit strategy or business redesigned</li>
 <li>2–3 wealth vehicles active, savings automated</li>
-<li>Identity defined by values and chosen lifestyle</li>
+<li>Identity grounded in values and lifestyle design</li>
 <li>AI + human system keeping you on track daily</li>
-<li>Calm confidence from visible, real progress</li>
+<li>Calm confidence from visible, measured progress</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="proof section">
+<!-- PROOF -->
+<section class="section">
 <div class="container">
-<div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-<span class="eyebrow">Founding Members</span>
-<h2 class="headline h2">Built with the first cohort. <em class="gold">Refined daily.</em></h2>
-<hr class="divider" style="margin:32px auto">
-<p class="body-lg" style="margin:0 auto">We're accepting a limited group of founding members who want to shape this program from the inside. In exchange for early access, you get preferred pricing and direct influence on the system we build together.</p>
+<div class="system-intro reveal">
+<span class="eyebrow">Why Now</span>
+<h2 class="h2">Founding members shape <em>everything</em>.</h2>
+<hr class="divider">
+<p class="body-lg">I'm building this in partnership with the first cohort. You get preferred pricing, direct influence on the system, and the earliest access — in exchange for honest feedback that makes it better every week.</p>
 </div>
-<div class="proof-cards reveal reveal-delay-1">
-<div class="proof-card">
-<blockquote>"I've tried three coaches and two courses. None of them had a system for what happens between calls. That's where I always fell off."</blockquote>
-<cite>— The problem this solves</cite>
+<div class="proof-cards">
+<div class="proof-card reveal">
+<blockquote>"I've tried three coaches. None had a system for what happens between calls. That's where I always fell off."</blockquote>
+<cite>The problem this solves</cite>
 </div>
-<div class="proof-card">
-<blockquote>"I don't need someone to tell me what to do. I need a system that keeps me doing it — every single day, not just on call days."</blockquote>
-<cite>— What founding members asked for</cite>
+<div class="proof-card reveal d1">
+<blockquote>"I don't need someone to tell me what to do. I need a system that keeps me doing it — every day, not just on call days."</blockquote>
+<cite>What founding members asked for</cite>
 </div>
-<div class="proof-card">
-<blockquote>"The idea of having an AI that knows my goals, my patterns, and my coach's framework — and is available at 11pm when I'm spiraling about money — that's what I want."</blockquote>
-<cite>— Why this model works</cite>
+<div class="proof-card reveal d2">
+<blockquote>"An AI that knows my goals, my patterns, and my coach's framework — available at 11pm when I'm spiraling about money decisions."</blockquote>
+<cite>Why this model works</cite>
 </div>
 </div>
 </div>
 </section>
 
 <!-- FAQ -->
-<section class="section">
+<section class="section" style="background:var(--bg-2);border-top:1px solid var(--cream-04);border-bottom:1px solid var(--cream-04)">
 <div class="container">
-<div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-<span class="eyebrow">Questions</span>
-<h2 class="headline h2">What you need to know.</h2>
-<hr class="divider" style="margin:32px auto">
+<div class="system-intro reveal">
+<span class="eyebrow">FAQ</span>
+<h2 class="h2">What you need to know.</h2>
+<hr class="divider">
 </div>
-<div class="faq-list reveal reveal-delay-1">
+<div class="faq-wrap reveal d1">
+<div class="faq">
 <div class="faq-item">
-<button class="faq-q">Is this financial advice?</button>
-<div class="faq-a"><p>No. This is coaching, not advisory. We help you build frameworks, clarify your strategy, and stay accountable to your plan. For specific investment, tax, or legal decisions, we recommend working with a licensed professional — and we can help you find one.</p></div>
-</div>
-<div class="faq-item">
-<button class="faq-q">How does the AI coaching actually work?</button>
-<div class="faq-a"><p>You interact with the system daily via email or the client portal. Morning check-ins, evening reviews, and on-demand coaching conversations with an AI trained in our methodology. It tracks your goals, nudges your behavior, and summarizes your progress — then routes anything complex to your human coach.</p></div>
+<button class="faq-q">Is this financial advice?<span class="plus"></span></button>
+<div class="faq-a"><p>No. This is coaching — frameworks, strategy, and accountability. For specific investment, tax, or legal decisions, I recommend working with a licensed professional. I can help you find one.</p></div>
 </div>
 <div class="faq-item">
-<button class="faq-q">What if I don't want to interact with AI?</button>
-<div class="faq-a"><p>The daily check-ins are short and optional (though clients who use them consistently see dramatically better results). The AI is a tool, not a requirement. Your live coaching sessions and community access work independently.</p></div>
+<button class="faq-q">How does the AI coaching actually work?<span class="plus"></span></button>
+<div class="faq-a"><p>You interact daily via email or the client portal. Morning check-ins, evening reviews, and on-demand coaching conversations with an AI trained in my methodology. It tracks goals, nudges behavior, summarizes progress — and routes anything complex to me directly.</p></div>
 </div>
 <div class="faq-item">
-<button class="faq-q">How much time does this take per week?</button>
-<div class="faq-a"><p>Daily check-ins take 2–3 minutes. Coaching calls are 45–90 minutes depending on your tier. The system is designed to fit into a high-performer's life — not become another obligation.</p></div>
+<button class="faq-q">What if I don't want to use the AI?<span class="plus"></span></button>
+<div class="faq-a"><p>Daily check-ins are short and optional — though clients who use them consistently see dramatically better results. Your live coaching and community access work independently either way.</p></div>
 </div>
 <div class="faq-item">
-<button class="faq-q">What's the refund policy?</button>
-<div class="faq-a"><p>We offer a 30-day performance guarantee. If you complete all onboarding steps, attend your coaching sessions, and engage with the daily system for 30 days — and feel it's not working — we'll refund your investment in full.</p></div>
+<button class="faq-q">How much time does this take per week?<span class="plus"></span></button>
+<div class="faq-a"><p>Daily check-ins: 2–3 minutes. Coaching calls: 45–90 minutes depending on tier. Designed to fit a high-performer's life — not become another obligation.</p></div>
 </div>
 <div class="faq-item">
-<button class="faq-q">Why founding members?</button>
-<div class="faq-a"><p>We're building this in partnership with our first clients. Founding members get preferred pricing that will never increase, direct access to shape the product, and the earliest version of the system — which improves every week based on real usage.</p></div>
+<button class="faq-q">What's the guarantee?<span class="plus"></span></button>
+<div class="faq-a"><p>30-day performance guarantee. Complete onboarding, attend sessions, engage with the daily system for 30 days — and if it's not working, I'll refund your investment in full.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Why founding members?<span class="plus"></span></button>
+<div class="faq-a"><p>I'm building this with the first clients, not for them. Founding members get pricing that never increases, direct input on the product, and a system that improves every week based on real usage.</p></div>
+</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta section" id="apply">
-<div class="container" style="position:relative;z-index:1">
-<div class="reveal">
-<span class="eyebrow">Apply Now</span>
-<h2 class="headline h2" style="max-width:700px;margin:0 auto 20px">Your freedom has a number.<br>Let's find it — and <em class="gold">build toward it</em>.</h2>
-<p class="body-lg" style="text-align:center;margin:0 auto 40px">Applications take 3 minutes. If you're a fit, we'll schedule a FIRE Plan Session within 48 hours — where we'll map your path to financial independence together.</p>
-<a href="https://calendly.com" class="btn btn-gold" style="margin:0 auto;display:inline-flex">Apply for Your FIRE Plan Session <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
-<p class="body-sm" style="margin-top:20px;text-align:center">Limited to 15 founding members. Application does not guarantee acceptance.</p>
+<!-- APPLICATION FORM -->
+<section class="apply-section section" id="apply">
+<div class="container">
+<div class="apply-layout">
+<div class="apply-text reveal">
+<span class="eyebrow">Apply</span>
+<h2 class="h2">Your freedom has a number. Let's find it — and <em>build toward it</em>.</h2>
+<hr class="divider">
+<p class="body-lg">This takes 2 minutes. If you're a fit, I'll schedule your FIRE Plan Session within 48 hours — where we map your path to financial independence together.</p>
+<p class="body-lg" style="margin-top:16px;font-size:.9rem;color:var(--cream-30)">Limited to 15 founding members.<br>Application does not guarantee acceptance.</p>
+</div>
+<form class="apply-form reveal d2" id="appForm" action="https://formsubmit.co/myusalocal@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="🔥 New Freedom Architect Application">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_next" value="https://coachstarriley.com">
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" name="name" required placeholder="Your name">
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" name="email" required placeholder="you@email.com">
+</div>
+<div class="form-group">
+<label>Current Role / Business</label>
+<input type="text" name="role" required placeholder="e.g. VP of Engineering at...">
+</div>
+<div class="form-group">
+<label>Annual Income Range</label>
+<select name="income" required>
+<option value="" disabled selected>Select range</option>
+<option>$100K – $200K</option>
+<option>$200K – $350K</option>
+<option>$350K – $500K</option>
+<option>$500K+</option>
+</select>
+</div>
+<div class="form-group">
+<label>Which tier interests you?</label>
+<select name="tier" required>
+<option value="" disabled selected>Select tier</option>
+<option>Tier 1 — FIRE Accelerator ($5K/6mo)</option>
+<option>Tier 2 — FIRE Architect ($15K/6mo)</option>
+<option>Tier 3 — FIRE Command ($50K/12mo)</option>
+<option>Not sure yet — help me decide</option>
+</select>
+</div>
+<div class="form-group">
+<label>What's the #1 thing keeping you from financial freedom?</label>
+<textarea name="challenge" required placeholder="Be specific — this helps me prepare for our conversation"></textarea>
+</div>
+<button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Submit Application <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<p class="form-note">Your information is private. I'll respond within 48 hours.</p>
+</form>
 </div>
 </div>
 </section>
@@ -514,30 +622,19 @@ footer a:hover{color:var(--gold)}
 <!-- FOOTER -->
 <footer>
 <div class="container">
-<p>&copy; 2026 The Freedom Architect. All rights reserved.</p>
-<p><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="mailto:hello@example.com">Contact</a></p>
+<div class="footer-inner">
+<p>&copy; 2026 Star Riley — The Freedom Architect. All rights reserved.</p>
+<p><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="https://coachstarriley.com">COACHSTARRILEY.com</a></p>
+</div>
 </div>
 </footer>
 
 <script>
-// Scroll reveal
-const reveals=document.querySelectorAll('.reveal');
-const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-reveals.forEach(r=>observer.observe(r));
-
-// Nav scroll
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
-
-// FAQ toggle
-document.querySelectorAll('.faq-q').forEach(btn=>{
-btn.addEventListener('click',()=>{
-const item=btn.parentElement;
-const wasOpen=item.classList.contains('open');
-document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-if(!wasOpen)item.classList.add('open');
-});
-});
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')})});
 </script>
 
 </body>
