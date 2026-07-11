@@ -143,7 +143,7 @@
         <div class="optin" id="get">
           <h3>Get the free playbook + Operator Starter Kit</h3>
           <p class="small">The Trusted-Twenty worksheet, the first-week checklist, and a walkthrough of the done-for-you system.</p>
-          <form action="#" method="post" onsubmit="return false;" aria-label="Email opt-in">
+          <form class="ugl-optin" aria-label="Email opt-in">
             <label for="email" style="position:absolute;left:-9999px">Email address</label>
             <input id="email" type="email" name="email" placeholder="Your best email" required autocomplete="email">
             <button type="submit">Send me the playbook →</button>
@@ -226,7 +226,7 @@
     <h2>Your next step costs nothing.</h2>
     <p class="lede" style="margin:0 auto; max-width:44ch; text-align:center">Get the playbook and the Operator Starter Kit free. Do just the first page this week.</p>
     <div class="optin">
-      <form action="#" method="post" onsubmit="return false;" aria-label="Email opt-in">
+      <form class="ugl-optin" aria-label="Email opt-in">
         <label for="email2" style="position:absolute;left:-9999px">Email address</label>
         <input id="email2" type="email" name="email" placeholder="Your best email" required autocomplete="email">
         <button type="submit">Send me the playbook →</button>
@@ -242,5 +242,52 @@
     <p>© 2026 Star Riley / MyUSA. All rights reserved.</p>
   </div>
 </footer>
+<script>
+(function(){
+  var ENDPOINT = "https://app.ugotleads.io/api/forms/Jm8F3sPCd1hL4QBztJQ5/submit";
+  var params = new URLSearchParams(location.search);
+  document.querySelectorAll("form.ugl-optin").forEach(function(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var input = form.querySelector("input[type=email]");
+      var btn = form.querySelector("button");
+      var email = (input.value || "").trim();
+      if(!email) return;
+      btn.disabled = true; btn.textContent = "Sending…";
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          values: { email: email },
+          attribution: {
+            utmSource: params.get("utm_source") || "retirement-playbook",
+            utmMedium: params.get("utm_medium") || "landing-page",
+            utmCampaign: params.get("utm_campaign") || "book-funnel",
+            utmContent: params.get("utm_content") || undefined,
+            utmTerm: params.get("utm_term") || undefined,
+            fbclid: params.get("fbclid") || undefined,
+            gclid: params.get("gclid") || undefined,
+            landingPage: location.href,
+            referrer: document.referrer || undefined
+          }
+        })
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if(res && res.ok){
+          form.innerHTML = '<p role="status" style="font-family:Georgia,serif;font-size:18px;color:#e7c877;margin:6px 0">' +
+            (res.thankYouMessage || "Check your inbox — your playbook is on the way.") + "</p>";
+        } else { throw new Error("submit failed"); }
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = "Send me the playbook →";
+        var err = form.querySelector(".err");
+        if(!err){ err = document.createElement("p"); err.className = "err";
+          err.setAttribute("role","alert");
+          err.style.cssText = "color:#e7c877;font-size:13px;margin-top:8px;flex-basis:100%";
+          form.appendChild(err); }
+        err.textContent = "Something went wrong — please try again.";
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
