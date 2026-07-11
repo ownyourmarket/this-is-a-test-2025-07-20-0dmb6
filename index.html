@@ -3,291 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Retirement Income Playbook — Free Book + Operator Starter Kit</title>
-<meta name="description" content="You don't have to build a business to get paid like you own one. Free playbook for people over 50 who want real monthly income from a done-for-you AI business.">
+<title>PromptExpert — Your best AI prompts, one click away | betterpromptcopy.com</title>
+<meta name="description" content="PromptExpert is the AI prompt workspace inside UGotLeads: save your winning prompts, load your brand context once, and run AI skills that deliver on-brand work in one click.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,640&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy-900:#0b1728; --navy-800:#0f1f36; --navy-700:#132741; --navy-600:#1c3a5e;
-    --cream:#f4efe4; --paper:#e9e2d2;
-    --gold:#e7c877; --gold-deep:#c9a24b;
-    --slate:#9fb2c8; --ink:#d9e2ee;
-    --maxw:1120px;
-    --serif:Georgia,'Times New Roman',serif;
-    --sans:'Segoe UI',Helvetica,Arial,sans-serif;
+    --ink:#0b1220;
+    --bg:#050a13;
+    --bg-2:#0b1528;
+    --teal:#14b8a6;
+    --teal-bright:#2dd4bf;
+    --teal-deep:#0f766e;
+    --amber:#f0b45c;
+    --text:#dbe7ee;
+    --text-dim:#8fa3b0;
+    --line:rgba(148,178,196,.14);
+    --display:"Fraunces",Georgia,serif;
+    --body:"Sora",-apple-system,sans-serif;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth; background:#0b1728}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{
-    font-family:var(--sans); color:var(--ink); line-height:1.7;
+    font-family:var(--body);
+    font-weight:300;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  .ambient{
+    position:fixed;inset:0;z-index:-2;pointer-events:none;
     background:
-      radial-gradient(120% 800px at 50% -60px, var(--navy-600) 0%, rgba(28,58,94,0) 60%),
-      linear-gradient(180deg, var(--navy-700) 0%, var(--navy-800) 640px, var(--navy-900) 1400px);
-    background-color:var(--navy-900);
-    background-repeat:no-repeat;
-    -webkit-font-smoothing:antialiased;
+      radial-gradient(ellipse 90rem 50rem at 85% -10%, rgba(20,184,166,.13), transparent 55%),
+      radial-gradient(ellipse 70rem 45rem at -15% 35%, rgba(37,72,116,.28), transparent 60%),
+      radial-gradient(ellipse 80rem 60rem at 60% 115%, rgba(15,118,110,.12), transparent 55%),
+      linear-gradient(175deg, #030712 0%, var(--bg) 45%, var(--bg-2) 100%);
   }
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,48px)}
+  .grain{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:var(--teal-bright);text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--teal-bright);outline-offset:3px;border-radius:4px}
+  ::selection{background:rgba(20,184,166,.35)}
+
+  .wrap{max-width:72rem;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:clamp(1.1rem,2.5vw,1.75rem);
+  }
+  .mark{
+    font-family:var(--display);font-weight:640;font-size:1.35rem;color:var(--text);
+    letter-spacing:-.02em;
+  }
+  .mark em{font-style:normal;color:var(--teal-bright)}
+  .mark small{
+    display:block;font-family:var(--body);font-weight:400;font-size:.62rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);margin-top:.1rem;
+  }
+  .btn{
+    display:inline-block;font-family:var(--body);font-weight:500;font-size:.95rem;
+    padding:.85rem 1.7rem;border-radius:.55rem;border:1px solid transparent;
+    transition:transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s cubic-bezier(.22,1,.36,1);
+    will-change:transform;
+  }
+  .btn-solid{
+    background:linear-gradient(180deg,var(--teal-bright),var(--teal));color:#04241f;
+    box-shadow:0 1px 0 rgba(255,255,255,.25) inset, 0 8px 24px -8px rgba(20,184,166,.55), 0 3px 10px -3px rgba(4,36,31,.7);
+  }
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.25) inset, 0 14px 32px -8px rgba(20,184,166,.65), 0 5px 14px -4px rgba(4,36,31,.7)}
+  .btn-solid:active{transform:translateY(0)}
+  .btn-ghost{color:var(--text);border-color:var(--line)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:rgba(45,212,191,.45);color:var(--teal-bright)}
+  .btn-ghost:active{transform:translateY(0)}
+
+  .hero{
+    display:grid;gap:clamp(2.5rem,6vw,4.5rem);
+    padding-block:clamp(3rem,8vw,7rem) clamp(4rem,9vw,8rem);
+    align-items:center;
+  }
+  @media(min-width:56rem){.hero{grid-template-columns:1.05fr .95fr}}
+  .eyebrow{
+    font-size:.7rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--teal-bright);margin-bottom:1.4rem;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:2rem;height:1px;background:var(--teal);vertical-align:middle;margin-right:.8rem;opacity:.7}
+  h1{
+    font-family:var(--display);font-weight:560;
+    font-size:clamp(2.5rem,6vw,4.3rem);
+    line-height:1.06;letter-spacing:-.03em;color:#eef6f9;
+    text-wrap:balance;
+  }
+  h1 em{font-style:italic;color:var(--teal-bright)}
+  .hero p.lede{
+    margin-top:1.6rem;max-width:34rem;font-size:clamp(1rem,1.6vw,1.13rem);color:var(--text-dim);
+  }
+  .hero-cta{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+  .hero-note{font-size:.8rem;color:var(--text-dim);margin-top:1.1rem}
+
+  .promptcard{
+    position:relative;border:1px solid var(--line);border-radius:1rem;
+    background:linear-gradient(165deg, rgba(17,30,52,.85), rgba(8,15,29,.92));
+    box-shadow:0 30px 60px -30px rgba(2,8,20,.9), 0 0 0 1px rgba(20,184,166,.06), 0 18px 50px -20px rgba(20,184,166,.18);
+    padding:clamp(1.4rem,3vw,2rem);
+    font-size:.92rem;
+  }
+  .promptcard::before{
+    content:"";position:absolute;inset:-1px;border-radius:1rem;z-index:-1;
+    background:radial-gradient(24rem 10rem at 20% 0%, rgba(20,184,166,.25), transparent 70%);
+    filter:blur(18px);opacity:.6;
+  }
+  .pc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+  .pc-title{font-weight:500;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim)}
+  .pc-cost{font-size:.72rem;color:var(--teal-bright);border:1px solid rgba(45,212,191,.3);border-radius:99px;padding:.2rem .7rem}
+  .pc-body{line-height:1.85;color:#c4d4de}
+  .slot{
+    color:var(--amber);background:rgba(240,180,92,.09);
+    border-bottom:1px dashed rgba(240,180,92,.5);
+    padding:.05rem .3rem;border-radius:.25rem;white-space:nowrap;
+  }
+  .gem{
+    color:var(--teal-bright);background:rgba(20,184,166,.1);
+    border:1px solid rgba(45,212,191,.28);border-radius:99px;
+    padding:.08rem .55rem;white-space:nowrap;font-size:.85em;
+  }
+  .pc-run{
+    margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+  .pc-run-btn{
+    font-weight:500;font-size:.85rem;color:#04241f;background:linear-gradient(180deg,var(--teal-bright),var(--teal));
+    border:none;border-radius:.5rem;padding:.6rem 1.3rem;cursor:default;
+    box-shadow:0 6px 18px -6px rgba(20,184,166,.55);
+  }
+  .pc-out{font-size:.78rem;color:var(--text-dim)}
+  .pc-out b{color:var(--teal-bright);font-weight:500}
+
+  section{padding-block:clamp(3.5rem,8vw,7rem)}
+  .rule{border:none;border-top:1px solid var(--line)}
   .kicker{
-    font-family:var(--serif); letter-spacing:.32em; text-transform:uppercase;
-    color:var(--gold); font-size:clamp(12px,1.6vw,15px); font-weight:700;
+    font-size:.7rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-bright);
   }
-  h1,h2,h3{font-family:var(--serif); color:var(--cream); line-height:1.08; letter-spacing:-.01em}
-
-  /* ---- HERO ---- */
-  header{padding:clamp(40px,7vw,84px) 0 clamp(30px,5vw,60px)}
-  .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(32px,5vw,72px); align-items:center}
-  .hero h1{font-size:clamp(38px,6vw,72px); font-weight:700; margin:.35em 0 .5em}
-  .hero h1 em{color:var(--gold); font-style:normal}
-  .lede{font-size:clamp(18px,2.2vw,22px); color:var(--ink); max-width:34ch}
-  .rule{height:3px; width:120px; margin:26px 0;
-    background:linear-gradient(90deg,var(--gold-deep),var(--gold),transparent)}
-
-  /* book cover mockup */
-  .cover-stage{perspective:1600px; display:flex; justify-content:center}
-  .cover{
-    width:min(340px,72vw); aspect-ratio:1600/2560; border-radius:6px 10px 10px 6px;
-    overflow:hidden; transform:rotateY(-14deg) rotateX(3deg);
-    box-shadow:
-      -14px 22px 44px rgba(0,0,0,.55),
-      -2px 4px 0 rgba(255,255,255,.04) inset,
-      6px 0 14px rgba(0,0,0,.35) inset;
-    border:1px solid rgba(231,200,119,.25);
-    transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  h2{
+    font-family:var(--display);font-weight:560;font-size:clamp(1.9rem,4.2vw,3rem);
+    line-height:1.12;letter-spacing:-.025em;color:#eef6f9;margin-top:1rem;text-wrap:balance;
   }
-  .cover:hover{transform:rotateY(-6deg) rotateX(1deg) translateY(-4px)}
-  .cover img,.cover svg{display:block;width:100%;height:100%}
+  .measure{max-width:38rem}
 
-  /* ---- OPT-IN CARD ---- */
-  .optin{
-    margin-top:34px; background:linear-gradient(180deg, rgba(28,58,94,.55), rgba(15,31,54,.55));
-    border:1px solid rgba(231,200,119,.28); border-radius:14px;
-    padding:clamp(22px,3vw,30px); backdrop-filter:blur(2px);
-    box-shadow:0 18px 40px rgba(0,0,0,.35);
+  .problem{display:grid;gap:clamp(2rem,5vw,4rem)}
+  @media(min-width:56rem){.problem{grid-template-columns:5fr 7fr;align-items:start}}
+  .problem blockquote{
+    font-family:var(--display);font-weight:450;font-style:italic;
+    font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.4;color:#cfe0e8;
+    border-left:2px solid var(--teal);padding-left:1.5rem;
   }
-  .optin h3{font-size:clamp(20px,2.4vw,24px); margin-bottom:4px}
-  .optin p.small{color:var(--slate); font-size:14px; margin-bottom:16px}
-  form{display:flex; gap:10px; flex-wrap:wrap}
-  input[type=email]{
-    flex:1 1 220px; min-width:0; padding:15px 18px; border-radius:9px;
-    border:1px solid rgba(159,178,200,.35); background:rgba(11,23,40,.7); color:var(--cream);
-    font-size:16px; font-family:var(--sans);
+  .problem .body p{color:var(--text-dim);max-width:36rem}
+  .problem .body p+p{margin-top:1.2rem}
+  .problem .body strong{color:var(--text);font-weight:500}
+
+  .rows{margin-top:clamp(2.5rem,6vw,4.5rem);border-top:1px solid var(--line)}
+  .row{
+    display:grid;gap:.8rem 2.5rem;padding-block:clamp(1.6rem,3.5vw,2.4rem);
+    border-bottom:1px solid var(--line);
+    grid-template-columns:1fr;
   }
-  input[type=email]::placeholder{color:#7f92a8}
-  input[type=email]:focus-visible{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(231,200,119,.25)}
-  button{
-    flex:0 0 auto; padding:15px 26px; border:none; border-radius:9px; cursor:pointer;
-    font-family:var(--serif); font-weight:700; font-size:16px; letter-spacing:.02em;
-    color:var(--navy-900); background:linear-gradient(180deg,var(--gold),var(--gold-deep));
-    transition:transform .15s ease, box-shadow .15s ease;
-    box-shadow:0 8px 20px rgba(231,200,119,.25);
+  @media(min-width:48rem){
+    .row{grid-template-columns:5.5rem 16rem 1fr;align-items:baseline}
+    .row:nth-child(even){transform:translateX(clamp(0rem,3vw,2.5rem))}
   }
-  button:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(231,200,119,.35)}
-  button:active{transform:translateY(0)}
-  .nospam{margin-top:12px; font-size:13px; color:var(--slate)}
-
-  /* ---- SECTIONS ---- */
-  section{padding:clamp(48px,7vw,90px) 0; border-top:1px solid rgba(159,178,200,.12)}
-  .section-head{max-width:40ch; margin-bottom:clamp(28px,4vw,44px)}
-  .section-head h2{font-size:clamp(28px,4vw,44px); font-weight:700}
-  .section-head .rule{margin:20px 0 0}
-
-  .benefits{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(18px,2.5vw,30px)}
-  .benefit{padding-left:22px; border-left:2px solid var(--gold-deep)}
-  .benefit h3{font-size:20px; margin-bottom:8px; color:var(--cream)}
-  .benefit p{color:var(--ink); font-size:16px}
-
-  .peek{
-    font-family:var(--serif); font-style:italic; font-size:clamp(22px,3.2vw,34px);
-    color:var(--cream); line-height:1.4; max-width:24ch; margin:0 auto; text-align:center;
+  .row .num{
+    font-family:var(--display);font-weight:450;font-style:italic;
+    font-size:clamp(1.6rem,3vw,2.2rem);color:rgba(45,212,191,.55);line-height:1;
   }
-  .peek span{color:var(--gold)}
-  .peek cite{display:block; font-style:normal; font-size:15px; letter-spacing:.2em;
-    text-transform:uppercase; color:var(--slate); margin-top:20px}
+  .row h3{font-family:var(--display);font-weight:560;font-size:clamp(1.2rem,2vw,1.45rem);letter-spacing:-.015em;color:#e8f2f6}
+  .row p{color:var(--text-dim);font-size:.97rem;max-width:34rem}
+  .row p b{color:var(--teal-bright);font-weight:500}
 
-  .author{display:grid; grid-template-columns:auto 1fr; gap:26px; align-items:center; max-width:720px}
-  .badge{width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
-    font-family:var(--serif); font-weight:700; font-size:34px; color:var(--navy-900);
-    background:linear-gradient(160deg,var(--gold),var(--gold-deep)); box-shadow:0 10px 24px rgba(0,0,0,.35)}
-  .author p{color:var(--ink)}
-  .author strong{color:var(--cream)}
-
-  /* final CTA */
-  .final{text-align:center}
-  .final h2{font-size:clamp(30px,4.6vw,52px); margin-bottom:18px}
-  .final .optin{max-width:560px; margin:28px auto 0}
-
-  footer{padding:40px 0 60px; border-top:1px solid rgba(159,178,200,.12); color:var(--slate); font-size:13px}
-  footer .disc{max-width:70ch; margin-bottom:10px}
-
-  @media (max-width:820px){
-    .hero{grid-template-columns:1fr; text-align:left}
-    .cover-stage{order:-1; margin-bottom:8px}
-    .author{grid-template-columns:1fr; text-align:center; justify-items:center}
+  .steps{display:grid;gap:clamp(2rem,4vw,3rem);margin-top:clamp(2.5rem,6vw,4rem)}
+  @media(min-width:56rem){
+    .steps{grid-template-columns:repeat(3,1fr)}
+    .steps .step:nth-child(2){transform:translateY(2.2rem)}
+    .steps .step:nth-child(3){transform:translateY(4.4rem)}
   }
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important; scroll-behavior:auto !important}
-    .cover{transform:none}
+  .step{border-top:2px solid var(--teal-deep);padding-top:1.3rem}
+  .step .s-label{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-bright);font-weight:500}
+  .step h3{font-family:var(--display);font-weight:560;font-size:1.3rem;margin-top:.6rem;color:#e8f2f6;letter-spacing:-.015em}
+  .step p{color:var(--text-dim);font-size:.95rem;margin-top:.6rem}
+  .steps-tail{margin-top:clamp(3rem,7vw,6rem);max-width:30rem}
+  .steps-tail p{color:var(--text-dim);font-size:.95rem}
+  .steps-tail p b{color:var(--text);font-weight:500}
+
+  .who{display:grid;gap:2.5rem}
+  @media(min-width:56rem){.who{grid-template-columns:1fr 1fr 1fr}}
+  .who article h3{font-family:var(--display);font-weight:560;font-size:1.25rem;color:#e8f2f6;letter-spacing:-.015em}
+  .who article p{color:var(--text-dim);font-size:.95rem;margin-top:.6rem}
+  .who article::before{
+    content:"";display:block;width:2.4rem;height:1px;background:var(--teal);margin-bottom:1.1rem;opacity:.8;
+  }
+
+  .cta-final{
+    text-align:left;position:relative;border:1px solid var(--line);border-radius:1.25rem;
+    padding:clamp(2.5rem,6vw,4.5rem);overflow:hidden;
+    background:linear-gradient(160deg, rgba(15,30,54,.7), rgba(6,12,24,.9));
+  }
+  .cta-final::after{
+    content:"";position:absolute;right:-15%;top:-40%;width:34rem;height:34rem;border-radius:50%;
+    background:radial-gradient(circle, rgba(20,184,166,.18), transparent 65%);pointer-events:none;
+  }
+  .cta-final h2{max-width:26ch}
+  .cta-final p{color:var(--text-dim);max-width:34rem;margin-top:1.2rem}
+  .cta-final .hero-cta{margin-top:2.2rem}
+
+  footer{padding-block:clamp(2.5rem,5vw,4rem);font-size:.82rem;color:var(--text-dim)}
+  .foot{display:flex;flex-wrap:wrap;gap:1.2rem 3rem;justify-content:space-between;align-items:flex-start}
+  footer .mark{font-size:1.1rem}
+  footer address{font-style:normal;line-height:1.9}
+  footer a{color:var(--text-dim)}
+  footer a:hover{color:var(--teal-bright)}
+
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+    .reveal.d1{animation-delay:.08s}.reveal.d2{animation-delay:.18s}.reveal.d3{animation-delay:.3s}.reveal.d4{animation-delay:.44s}
+    @keyframes rise{to{opacity:1;transform:none}}
+    .io{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+    .io.in{opacity:1;transform:none}
   }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="hero">
+<div class="ambient" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header>
+    <div class="mark">Prompt<em>Expert</em><small>by UGotLeads</small></div>
+    <nav aria-label="Primary">
+      <a class="btn btn-ghost" href="https://www.ugotleads.io">Sign in</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-h">
       <div>
-        <span class="kicker">A MyUSA Field Guide · Free Book</span>
-        <h1>You don't have to build a business to get paid like you <em>own one</em>.</h1>
-        <div class="rule"></div>
-        <p class="lede">There's a way to earn real monthly income after 50 — by <strong>operating</strong> a done-for-you AI business instead of spending 18 months trying to build one. This free playbook shows you how.</p>
-
-        <div class="optin" id="get">
-          <h3>Get the free playbook + Operator Starter Kit</h3>
-          <p class="small">The Trusted-Twenty worksheet, the first-week checklist, and a walkthrough of the done-for-you system.</p>
-          <form class="ugl-optin" aria-label="Email opt-in">
-            <label for="email" style="position:absolute;left:-9999px">Email address</label>
-            <input id="email" type="email" name="email" placeholder="Your best email" required autocomplete="email">
-            <button type="submit">Send me the playbook →</button>
-          </form>
-          <p class="nospam">No spam. Unsubscribe anytime. <em>Results are not guaranteed.</em></p>
+        <p class="eyebrow reveal">The prompt engine in your pocket</p>
+        <h1 id="hero-h" class="reveal d1">Your best AI prompts, <em>one click away</em> — everywhere you work.</h1>
+        <p class="lede reveal d2">PromptExpert is the AI workspace inside UGotLeads. Save the prompts that win, load your brand context once, and run skills that deliver finished, on-brand work — without retyping a word.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn btn-solid" href="https://www.ugotleads.io">Get PromptExpert</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
         </div>
+        <p class="hero-note reveal d3">Included with UGotLeads credit plans · No extra software to install</p>
       </div>
 
-      <div class="cover-stage">
-        <div class="cover">
-          <svg viewBox="0 0 1600 2560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Retirement Income Playbook book cover">
-            <defs>
-              <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#132741"/><stop offset="0.55" stop-color="#0f1f36"/><stop offset="1" stop-color="#0b1728"/></linearGradient>
-              <radialGradient id="cglow" cx="0.5" cy="0.30" r="0.7"><stop offset="0" stop-color="#1c3a5e" stop-opacity="0.55"/><stop offset="1" stop-color="#0f1f36" stop-opacity="0"/></radialGradient>
-              <linearGradient id="cgold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9a24b"/><stop offset="0.5" stop-color="#e7c877"/><stop offset="1" stop-color="#c9a24b"/></linearGradient>
-            </defs>
-            <rect width="1600" height="2560" fill="url(#cbg)"/><rect width="1600" height="2560" fill="url(#cglow)"/>
-            <g stroke="#e7c877" stroke-opacity="0.14" fill="none" stroke-width="3">
-              <path d="M 210 1980 C 470 1860, 620 2120, 900 1980 S 1260 1860, 1390 2010"/>
-              <path d="M 250 2150 C 520 2060, 760 2260, 1040 2140 S 1300 2060, 1370 2170"/>
-            </g>
-            <g fill="#e7c877" fill-opacity="0.5"><circle cx="210" cy="1980" r="9"/><circle cx="900" cy="1980" r="9"/><circle cx="1390" cy="2010" r="9"/><circle cx="250" cy="2150" r="7"/><circle cx="1040" cy="2140" r="7"/><circle cx="1370" cy="2170" r="7"/></g>
-            <text x="800" y="360" text-anchor="middle" font-family="Georgia,serif" font-size="46" letter-spacing="14" fill="#e7c877" font-weight="bold">M Y U S A</text>
-            <text x="800" y="418" text-anchor="middle" font-family="Georgia,serif" font-size="34" letter-spacing="8" fill="#9fb2c8">A FIELD GUIDE FOR OPERATORS OVER 50</text>
-            <rect x="560" y="470" width="480" height="4" fill="url(#cgold)"/>
-            <g font-family="Georgia,serif" fill="#f4efe4" text-anchor="middle" font-weight="bold">
-              <text x="800" y="760" font-size="150">THE</text><text x="800" y="920" font-size="150">RETIREMENT</text><text x="800" y="1080" font-size="150">INCOME</text>
-              <text x="800" y="1268" font-size="196" fill="#e7c877">PLAYBOOK</text>
-            </g>
-            <line x1="360" y1="1440" x2="1240" y2="1440" stroke="#e7c877" stroke-opacity="0.35" stroke-width="2"/>
-            <g font-family="Georgia,serif" fill="#d9e2ee" text-anchor="middle">
-              <text x="800" y="1540" font-size="58" font-style="italic">How to Run a Done-For-You AI Business</text>
-              <text x="800" y="1616" font-size="58" font-style="italic">After 50 — No Tech Skills, No Employees</text>
-            </g>
-            <line x1="360" y1="1690" x2="1240" y2="1690" stroke="#e7c877" stroke-opacity="0.35" stroke-width="2"/>
-            <text x="800" y="2360" text-anchor="middle" font-family="Georgia,serif" font-size="72" letter-spacing="10" fill="#f4efe4" font-weight="bold">STAR RILEY</text>
-            <text x="800" y="2430" text-anchor="middle" font-family="Georgia,serif" font-size="34" letter-spacing="6" fill="#9fb2c8">FOUNDER, MYUSA</text>
-          </svg>
+      <div class="promptcard reveal d4" role="img" aria-label="Example of a PromptExpert template: a cold-email skill with fill-in variable slots, an attached brand gem, and a one-click run button that costs five credits.">
+        <div class="pc-head">
+          <span class="pc-title">Skill · Cold Email Opener</span>
+          <span class="pc-cost">5 credits / run</span>
+        </div>
+        <p class="pc-body">
+          Write a 3-sentence opener for <span class="slot">[Prospect_Name]</span> at
+          <span class="slot">[Company]</span>, referencing their
+          <span class="slot">[Recent_News]</span>. Match the voice in
+          <span class="gem">@Brand&nbsp;Bio</span> and speak to the pains in
+          <span class="gem">@Buyer&nbsp;Persona</span>. End with one soft question.
+        </p>
+        <div class="pc-run">
+          <span class="pc-run-btn" aria-hidden="true">Run skill →</span>
+          <span class="pc-out">Output: <b>on-brand, ready to send</b></span>
         </div>
       </div>
-    </div>
-  </div>
-</header>
+    </section>
+  </main>
+</div>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <h2>What's inside</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="benefits">
-      <div class="benefit"><h3>Skip the 18-month grind</h3><p>Step into demand that already exists instead of building an audience from zero.</p></div>
-      <div class="benefit"><h3>No tech skills required</h3><p>The hard, technical parts are done-for-you. Your job is judgment and relationships.</p></div>
-      <div class="benefit"><h3>Use trust you already have</h3><p>Turn decades of goodwill in your town into recurring monthly income.</p></div>
-      <div class="benefit"><h3>A real 30-day plan</h3><p>Week by week, with nothing left vague — the exact first steps to take.</p></div>
-      <div class="benefit"><h3>No hype, no casino</h3><p>No crypto, no trading, no MLM. A real business serving real local customers.</p></div>
-      <div class="benefit"><h3>Built for after 50</h3><p>Written for the assets you've spent a lifetime earning — not against them.</p></div>
-    </div>
-  </div>
-</section>
+<hr class="rule">
 
-<section>
-  <div class="wrap">
-    <p class="peek">"Ray's problem was never that he lacked skill, energy, or people who trusted him. What Ray lacked was <span>a system</span>."
-      <cite>— Chapter 1</cite></p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="author">
-      <div class="badge" aria-hidden="true">SR</div>
-      <p><strong>Star Riley</strong> founded MyUSA to help people over 50 build done-for-you, AI-first local businesses that pay monthly income — supporting humans, not replacing them.</p>
+<div class="wrap">
+  <section class="problem io" aria-labelledby="problem-h">
+    <div>
+      <p class="kicker">The real problem</p>
+      <h2 id="problem-h">Most people don't have an AI problem. They have a repetition problem.</h2>
     </div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <h2>Your next step costs nothing.</h2>
-    <p class="lede" style="margin:0 auto; max-width:44ch; text-align:center">Get the playbook and the Operator Starter Kit free. Do just the first page this week.</p>
-    <div class="optin">
-      <form class="ugl-optin" aria-label="Email opt-in">
-        <label for="email2" style="position:absolute;left:-9999px">Email address</label>
-        <input id="email2" type="email" name="email" placeholder="Your best email" required autocomplete="email">
-        <button type="submit">Send me the playbook →</button>
-      </form>
-      <p class="nospam">No spam. Unsubscribe anytime.</p>
+    <div class="body">
+      <blockquote>Every morning you re-explain your business to a machine that forgot you overnight.</blockquote>
+      <p style="margin-top:1.5rem">Who you serve. How you sound. What you sell. You type it into ChatGPT again and again — and when you skip it, the output reads like it was written for somebody else's company. So you edit. And the "time-saving AI" quietly costs you an hour a day.</p>
+      <p><strong>PromptExpert ends the re-typing.</strong> Your context lives in one place, your best prompts become one-click skills, and every output comes back sounding like you — because the system finally remembers who you are.</p>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<footer>
-  <div class="wrap">
-    <p class="disc"><em>Earnings Disclaimer:</em> Results are not guaranteed. Individual earnings and success depend on many factors including effort, market conditions, and execution. Nothing here is financial, legal, or tax advice. MyUSA OS is a software license and resource-access program; operators are independent business owners.</p>
-    <p>© 2026 Star Riley / MyUSA. All rights reserved.</p>
-  </div>
-</footer>
+<hr class="rule">
+
+<div class="wrap">
+  <section aria-labelledby="stack-h" class="io">
+    <p class="kicker">What's inside</p>
+    <h2 id="stack-h" class="measure">Five pieces. One system that compounds.</h2>
+
+    <div class="rows">
+      <div class="row">
+        <span class="num" aria-hidden="true">01</span>
+        <h3>Prompts</h3>
+        <p>Your winning prompts, saved as templates with fill-in slots like <b>[Target_Audience]</b>. Write it well once — reuse it forever, across your whole team.</p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">02</span>
+        <h3>Gems</h3>
+        <p>Context blocks — brand bio, buyer persona, offer details — you attach with an <b>@mention</b>. Load your business into a gem once and every prompt speaks your language.</p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">03</span>
+        <h3>Skills</h3>
+        <p>Prompts promoted to <b>one-click actions</b> with a known credit cost: scrape, clean, draft, format. Press run, get finished work.</p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">04</span>
+        <h3>Custom GPTs</h3>
+        <p>Bundle a prompt, gems, and skills into a <b>named assistant</b> for a job — "Listing Writer," "Follow-Up Coach" — no extra AI subscriptions for every seat.</p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">05</span>
+        <h3>Growth Agents</h3>
+        <p>Scheduled agents that run <b>while you sleep</b> — drafting content, prepping social posts, warming leads — logged and metered, never mysterious.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="rule">
+
+<div class="wrap">
+  <section id="how" aria-labelledby="how-h" class="io">
+    <p class="kicker">How it works</p>
+    <h2 id="how-h" class="measure">Set it up in an afternoon. Use it for years.</h2>
+
+    <div class="steps">
+      <article class="step">
+        <span class="s-label">Step one</span>
+        <h3>Load your context</h3>
+        <p>Create your gems: who you are, who you serve, how you sound. Fifteen minutes, once. This is the part everyone else re-types daily.</p>
+      </article>
+      <article class="step">
+        <span class="s-label">Step two</span>
+        <h3>Save your winners</h3>
+        <p>Turn the prompts that already work into templates and skills. Give them slots, attach gems, set the credit cost.</p>
+      </article>
+      <article class="step">
+        <span class="s-label">Step three</span>
+        <h3>Run everywhere</h3>
+        <p>One click from your UGotLeads dashboard — emails, listings, posts, follow-ups — every output on-brand, every run on the meter you control.</p>
+      </article>
+    </div>
+
+    <div class="steps-tail">
+      <p><b>Fair, visible pricing:</b> runs are metered in UGotLeads credits with the cost shown before you click. No surprise invoices, no per-seat AI subscriptions stacking up.</p>
+    </div>
+  </section>
+</div>
+
+<hr class="rule">
+
+<div class="wrap">
+  <section aria-labelledby="who-h" class="io">
+    <p class="kicker">Built for</p>
+    <h2 id="who-h" class="measure">Made for people who'd rather run a business than babysit a chatbot.</h2>
+    <div class="who" style="margin-top:clamp(2.5rem,5vw,3.5rem)">
+      <article>
+        <h3>Entrepreneurs</h3>
+        <p>Building income without hiring a staff. Your one-person marketing department, on demand.</p>
+      </article>
+      <article>
+        <h3>Local business owners</h3>
+        <p>A technology expert on call — minus the payroll. Every customer email and promo, done in your voice.</p>
+      </article>
+      <article>
+        <h3>Agencies &amp; teams</h3>
+        <p>One prompt library for the whole crew. New hires sound senior on day one, because the system carries the standard.</p>
+      </article>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section aria-labelledby="cta-h" class="io" style="padding-top:0">
+    <div class="cta-final">
+      <p class="kicker">Get started</p>
+      <h2 id="cta-h">Stop building in the dark. Build the system that remembers.</h2>
+      <p>PromptExpert comes with UGotLeads — the CRM, funnels, and automations platform built for operators. Set up your prompt engine this week and let it work while you sleep.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="https://www.ugotleads.io">Get PromptExpert inside UGotLeads</a>
+        <a class="btn btn-ghost" href="mailto:myusalocal@gmail.com">Questions? Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <div class="mark">Prompt<em>Expert</em></div>
+        <p style="margin-top:.6rem;max-width:22rem">The AI prompt workspace by UGotLeads. Support humans, don't replace them.</p>
+      </div>
+      <address>
+        MyUSA Local<br>
+        1230 S Hairston Rd 4A Ste 286<br>
+        Stone Mountain, GA 30088<br>
+        <a href="mailto:myusalocal@gmail.com">myusalocal@gmail.com</a>
+      </address>
+    </div>
+    <p style="margin-top:2.5rem;border-top:1px solid var(--line);padding-top:1.5rem">© 2026 MyUSA · PromptExpert &amp; UGotLeads are MyUSA technologies · <a href="/playbook.html">The Retirement Income Playbook</a> · betterpromptcopy.com</p>
+  </footer>
+</div>
+
 <script>
-(function(){
-  var ENDPOINT = "https://app.ugotleads.io/api/forms/Jm8F3sPCd1hL4QBztJQ5/submit";
-  var params = new URLSearchParams(location.search);
-  document.querySelectorAll("form.ugl-optin").forEach(function(form){
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      var input = form.querySelector("input[type=email]");
-      var btn = form.querySelector("button");
-      var email = (input.value || "").trim();
-      if(!email) return;
-      btn.disabled = true; btn.textContent = "Sending…";
-      fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          values: { email: email },
-          attribution: {
-            utmSource: params.get("utm_source") || "retirement-playbook",
-            utmMedium: params.get("utm_medium") || "landing-page",
-            utmCampaign: params.get("utm_campaign") || "book-funnel",
-            utmContent: params.get("utm_content") || undefined,
-            utmTerm: params.get("utm_term") || undefined,
-            fbclid: params.get("fbclid") || undefined,
-            gclid: params.get("gclid") || undefined,
-            landingPage: location.href,
-            referrer: document.referrer || undefined
-          }
-        })
-      }).then(function(r){ return r.json(); }).then(function(res){
-        if(res && res.ok){
-          form.innerHTML = '<p role="status" style="font-family:Georgia,serif;font-size:18px;color:#e7c877;margin:6px 0">' +
-            (res.thankYouMessage || "Check your inbox — your playbook is on the way.") + "</p>";
-        } else { throw new Error("submit failed"); }
-      }).catch(function(){
-        btn.disabled = false; btn.textContent = "Send me the playbook →";
-        var err = form.querySelector(".err");
-        if(!err){ err = document.createElement("p"); err.className = "err";
-          err.setAttribute("role","alert");
-          err.style.cssText = "color:#e7c877;font-size:13px;margin-top:8px;flex-basis:100%";
-          form.appendChild(err); }
-        err.textContent = "Something went wrong — please try again.";
-      });
-    });
-  });
-})();
+  const io = new IntersectionObserver((entries)=>{
+    for(const e of entries){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }
+  },{threshold:.12});
+  document.querySelectorAll(".io").forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
