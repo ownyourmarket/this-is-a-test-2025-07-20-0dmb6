@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Retirement Income Playbook — Free Book + Operator Starter Kit</title>
+<meta name="description" content="You don't have to build a business to get paid like you own one. Free playbook for people over 50 who want real monthly income from a done-for-you AI business.">
+<style>
+  :root{
+    --navy-900:#0b1728; --navy-800:#0f1f36; --navy-700:#132741; --navy-600:#1c3a5e;
+    --cream:#f4efe4; --paper:#e9e2d2;
+    --gold:#e7c877; --gold-deep:#c9a24b;
+    --slate:#9fb2c8; --ink:#d9e2ee;
+    --maxw:1120px;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth; background:#0b1728}
+  body{
+    font-family:var(--sans); color:var(--ink); line-height:1.7;
+    background:
+      radial-gradient(120% 800px at 50% -60px, var(--navy-600) 0%, rgba(28,58,94,0) 60%),
+      linear-gradient(180deg, var(--navy-700) 0%, var(--navy-800) 640px, var(--navy-900) 1400px);
+    background-color:var(--navy-900);
+    background-repeat:no-repeat;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,48px)}
+  .kicker{
+    font-family:var(--serif); letter-spacing:.32em; text-transform:uppercase;
+    color:var(--gold); font-size:clamp(12px,1.6vw,15px); font-weight:700;
+  }
+  h1,h2,h3{font-family:var(--serif); color:var(--cream); line-height:1.08; letter-spacing:-.01em}
+
+  /* ---- HERO ---- */
+  header{padding:clamp(40px,7vw,84px) 0 clamp(30px,5vw,60px)}
+  .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(32px,5vw,72px); align-items:center}
+  .hero h1{font-size:clamp(38px,6vw,72px); font-weight:700; margin:.35em 0 .5em}
+  .hero h1 em{color:var(--gold); font-style:normal}
+  .lede{font-size:clamp(18px,2.2vw,22px); color:var(--ink); max-width:34ch}
+  .rule{height:3px; width:120px; margin:26px 0;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold),transparent)}
+
+  /* book cover mockup */
+  .cover-stage{perspective:1600px; display:flex; justify-content:center}
+  .cover{
+    width:min(340px,72vw); aspect-ratio:1600/2560; border-radius:6px 10px 10px 6px;
+    overflow:hidden; transform:rotateY(-14deg) rotateX(3deg);
+    box-shadow:
+      -14px 22px 44px rgba(0,0,0,.55),
+      -2px 4px 0 rgba(255,255,255,.04) inset,
+      6px 0 14px rgba(0,0,0,.35) inset;
+    border:1px solid rgba(231,200,119,.25);
+    transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  }
+  .cover:hover{transform:rotateY(-6deg) rotateX(1deg) translateY(-4px)}
+  .cover img,.cover svg{display:block;width:100%;height:100%}
+
+  /* ---- OPT-IN CARD ---- */
+  .optin{
+    margin-top:34px; background:linear-gradient(180deg, rgba(28,58,94,.55), rgba(15,31,54,.55));
+    border:1px solid rgba(231,200,119,.28); border-radius:14px;
+    padding:clamp(22px,3vw,30px); backdrop-filter:blur(2px);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  .optin h3{font-size:clamp(20px,2.4vw,24px); margin-bottom:4px}
+  .optin p.small{color:var(--slate); font-size:14px; margin-bottom:16px}
+  form{display:flex; gap:10px; flex-wrap:wrap}
+  input[type=email]{
+    flex:1 1 220px; min-width:0; padding:15px 18px; border-radius:9px;
+    border:1px solid rgba(159,178,200,.35); background:rgba(11,23,40,.7); color:var(--cream);
+    font-size:16px; font-family:var(--sans);
+  }
+  input[type=email]::placeholder{color:#7f92a8}
+  input[type=email]:focus-visible{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(231,200,119,.25)}
+  button{
+    flex:0 0 auto; padding:15px 26px; border:none; border-radius:9px; cursor:pointer;
+    font-family:var(--serif); font-weight:700; font-size:16px; letter-spacing:.02em;
+    color:var(--navy-900); background:linear-gradient(180deg,var(--gold),var(--gold-deep));
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 8px 20px rgba(231,200,119,.25);
+  }
+  button:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(231,200,119,.35)}
+  button:active{transform:translateY(0)}
+  .nospam{margin-top:12px; font-size:13px; color:var(--slate)}
+
+  /* ---- SECTIONS ---- */
+  section{padding:clamp(48px,7vw,90px) 0; border-top:1px solid rgba(159,178,200,.12)}
+  .section-head{max-width:40ch; margin-bottom:clamp(28px,4vw,44px)}
+  .section-head h2{font-size:clamp(28px,4vw,44px); font-weight:700}
+  .section-head .rule{margin:20px 0 0}
+
+  .benefits{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:clamp(18px,2.5vw,30px)}
+  .benefit{padding-left:22px; border-left:2px solid var(--gold-deep)}
+  .benefit h3{font-size:20px; margin-bottom:8px; color:var(--cream)}
+  .benefit p{color:var(--ink); font-size:16px}
+
+  .peek{
+    font-family:var(--serif); font-style:italic; font-size:clamp(22px,3.2vw,34px);
+    color:var(--cream); line-height:1.4; max-width:24ch; margin:0 auto; text-align:center;
+  }
+  .peek span{color:var(--gold)}
+  .peek cite{display:block; font-style:normal; font-size:15px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--slate); margin-top:20px}
+
+  .author{display:grid; grid-template-columns:auto 1fr; gap:26px; align-items:center; max-width:720px}
+  .badge{width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
+    font-family:var(--serif); font-weight:700; font-size:34px; color:var(--navy-900);
+    background:linear-gradient(160deg,var(--gold),var(--gold-deep)); box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .author p{color:var(--ink)}
+  .author strong{color:var(--cream)}
+
+  /* final CTA */
+  .final{text-align:center}
+  .final h2{font-size:clamp(30px,4.6vw,52px); margin-bottom:18px}
+  .final .optin{max-width:560px; margin:28px auto 0}
+
+  footer{padding:40px 0 60px; border-top:1px solid rgba(159,178,200,.12); color:var(--slate); font-size:13px}
+  footer .disc{max-width:70ch; margin-bottom:10px}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; text-align:left}
+    .cover-stage{order:-1; margin-bottom:8px}
+    .author{grid-template-columns:1fr; text-align:center; justify-items:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; scroll-behavior:auto !important}
+    .cover{transform:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="kicker">A MyUSA Field Guide · Free Book</span>
+        <h1>You don't have to build a business to get paid like you <em>own one</em>.</h1>
+        <div class="rule"></div>
+        <p class="lede">There's a way to earn real monthly income after 50 — by <strong>operating</strong> a done-for-you AI business instead of spending 18 months trying to build one. This free playbook shows you how.</p>
+
+        <div class="optin" id="get">
+          <h3>Get the free playbook + Operator Starter Kit</h3>
+          <p class="small">The Trusted-Twenty worksheet, the first-week checklist, and a walkthrough of the done-for-you system.</p>
+          <form class="ugl-optin" aria-label="Email opt-in">
+            <label for="email" style="position:absolute;left:-9999px">Email address</label>
+            <input id="email" type="email" name="email" placeholder="Your best email" required autocomplete="email">
+            <button type="submit">Send me the playbook →</button>
+          </form>
+          <p class="nospam">No spam. Unsubscribe anytime. <em>Results are not guaranteed.</em></p>
+        </div>
+      </div>
+
+      <div class="cover-stage">
+        <div class="cover">
+          <svg viewBox="0 0 1600 2560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Retirement Income Playbook book cover">
+            <defs>
+              <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#132741"/><stop offset="0.55" stop-color="#0f1f36"/><stop offset="1" stop-color="#0b1728"/></linearGradient>
+              <radialGradient id="cglow" cx="0.5" cy="0.30" r="0.7"><stop offset="0" stop-color="#1c3a5e" stop-opacity="0.55"/><stop offset="1" stop-color="#0f1f36" stop-opacity="0"/></radialGradient>
+              <linearGradient id="cgold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9a24b"/><stop offset="0.5" stop-color="#e7c877"/><stop offset="1" stop-color="#c9a24b"/></linearGradient>
+            </defs>
+            <rect width="1600" height="2560" fill="url(#cbg)"/><rect width="1600" height="2560" fill="url(#cglow)"/>
+            <g stroke="#e7c877" stroke-opacity="0.14" fill="none" stroke-width="3">
+              <path d="M 210 1980 C 470 1860, 620 2120, 900 1980 S 1260 1860, 1390 2010"/>
+              <path d="M 250 2150 C 520 2060, 760 2260, 1040 2140 S 1300 2060, 1370 2170"/>
+            </g>
+            <g fill="#e7c877" fill-opacity="0.5"><circle cx="210" cy="1980" r="9"/><circle cx="900" cy="1980" r="9"/><circle cx="1390" cy="2010" r="9"/><circle cx="250" cy="2150" r="7"/><circle cx="1040" cy="2140" r="7"/><circle cx="1370" cy="2170" r="7"/></g>
+            <text x="800" y="360" text-anchor="middle" font-family="Georgia,serif" font-size="46" letter-spacing="14" fill="#e7c877" font-weight="bold">M Y U S A</text>
+            <text x="800" y="418" text-anchor="middle" font-family="Georgia,serif" font-size="34" letter-spacing="8" fill="#9fb2c8">A FIELD GUIDE FOR OPERATORS OVER 50</text>
+            <rect x="560" y="470" width="480" height="4" fill="url(#cgold)"/>
+            <g font-family="Georgia,serif" fill="#f4efe4" text-anchor="middle" font-weight="bold">
+              <text x="800" y="760" font-size="150">THE</text><text x="800" y="920" font-size="150">RETIREMENT</text><text x="800" y="1080" font-size="150">INCOME</text>
+              <text x="800" y="1268" font-size="196" fill="#e7c877">PLAYBOOK</text>
+            </g>
+            <line x1="360" y1="1440" x2="1240" y2="1440" stroke="#e7c877" stroke-opacity="0.35" stroke-width="2"/>
+            <g font-family="Georgia,serif" fill="#d9e2ee" text-anchor="middle">
+              <text x="800" y="1540" font-size="58" font-style="italic">How to Run a Done-For-You AI Business</text>
+              <text x="800" y="1616" font-size="58" font-style="italic">After 50 — No Tech Skills, No Employees</text>
+            </g>
+            <line x1="360" y1="1690" x2="1240" y2="1690" stroke="#e7c877" stroke-opacity="0.35" stroke-width="2"/>
+            <text x="800" y="2360" text-anchor="middle" font-family="Georgia,serif" font-size="72" letter-spacing="10" fill="#f4efe4" font-weight="bold">STAR RILEY</text>
+            <text x="800" y="2430" text-anchor="middle" font-family="Georgia,serif" font-size="34" letter-spacing="6" fill="#9fb2c8">FOUNDER, MYUSA</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's inside</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><h3>Skip the 18-month grind</h3><p>Step into demand that already exists instead of building an audience from zero.</p></div>
+      <div class="benefit"><h3>No tech skills required</h3><p>The hard, technical parts are done-for-you. Your job is judgment and relationships.</p></div>
+      <div class="benefit"><h3>Use trust you already have</h3><p>Turn decades of goodwill in your town into recurring monthly income.</p></div>
+      <div class="benefit"><h3>A real 30-day plan</h3><p>Week by week, with nothing left vague — the exact first steps to take.</p></div>
+      <div class="benefit"><h3>No hype, no casino</h3><p>No crypto, no trading, no MLM. A real business serving real local customers.</p></div>
+      <div class="benefit"><h3>Built for after 50</h3><p>Written for the assets you've spent a lifetime earning — not against them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="peek">"Ray's problem was never that he lacked skill, energy, or people who trusted him. What Ray lacked was <span>a system</span>."
+      <cite>— Chapter 1</cite></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="author">
+      <div class="badge" aria-hidden="true">SR</div>
+      <p><strong>Star Riley</strong> founded MyUSA to help people over 50 build done-for-you, AI-first local businesses that pay monthly income — supporting humans, not replacing them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Your next step costs nothing.</h2>
+    <p class="lede" style="margin:0 auto; max-width:44ch; text-align:center">Get the playbook and the Operator Starter Kit free. Do just the first page this week.</p>
+    <div class="optin">
+      <form class="ugl-optin" aria-label="Email opt-in">
+        <label for="email2" style="position:absolute;left:-9999px">Email address</label>
+        <input id="email2" type="email" name="email" placeholder="Your best email" required autocomplete="email">
+        <button type="submit">Send me the playbook →</button>
+      </form>
+      <p class="nospam">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disc"><em>Earnings Disclaimer:</em> Results are not guaranteed. Individual earnings and success depend on many factors including effort, market conditions, and execution. Nothing here is financial, legal, or tax advice. MyUSA OS is a software license and resource-access program; operators are independent business owners.</p>
+    <p>© 2026 Star Riley / MyUSA. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var ENDPOINT = "https://app.ugotleads.io/api/forms/Jm8F3sPCd1hL4QBztJQ5/submit";
+  var params = new URLSearchParams(location.search);
+  document.querySelectorAll("form.ugl-optin").forEach(function(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var input = form.querySelector("input[type=email]");
+      var btn = form.querySelector("button");
+      var email = (input.value || "").trim();
+      if(!email) return;
+      btn.disabled = true; btn.textContent = "Sending…";
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          values: { email: email },
+          attribution: {
+            utmSource: params.get("utm_source") || "retirement-playbook",
+            utmMedium: params.get("utm_medium") || "landing-page",
+            utmCampaign: params.get("utm_campaign") || "book-funnel",
+            utmContent: params.get("utm_content") || undefined,
+            utmTerm: params.get("utm_term") || undefined,
+            fbclid: params.get("fbclid") || undefined,
+            gclid: params.get("gclid") || undefined,
+            landingPage: location.href,
+            referrer: document.referrer || undefined
+          }
+        })
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if(res && res.ok){
+          form.innerHTML = '<p role="status" style="font-family:Georgia,serif;font-size:18px;color:#e7c877;margin:6px 0">' +
+            (res.thankYouMessage || "Check your inbox — your playbook is on the way.") + "</p>";
+        } else { throw new Error("submit failed"); }
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = "Send me the playbook →";
+        var err = form.querySelector(".err");
+        if(!err){ err = document.createElement("p"); err.className = "err";
+          err.setAttribute("role","alert");
+          err.style.cssText = "color:#e7c877;font-size:13px;margin-top:8px;flex-basis:100%";
+          form.appendChild(err); }
+        err.textContent = "Something went wrong — please try again.";
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
