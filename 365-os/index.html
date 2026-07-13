@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyUSA 365 OS — Own the Operating System Behind Your Local Market</title>
+<meta name="description" content="Get licensed access to MyUSA 365 OS — the operator platform with certified plug-in modules: uGotLeads CRM, AI Ranker, 247 US Receptionist, and MyUSA Mini-Billboard.">
+<style>
+  :root{
+    --ink:#0e1220; --ink-soft:#3c4358; --paper:#ffffff; --wash:#f4f5f9;
+    --brand:#1d4ed8; --brand-dark:#1e3a8a; --accent:#f59e0b; --line:#e3e6ef;
+    --good:#15803d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  img{max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
+  h2{font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+  .kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+  .sub{font-size:19px;color:var(--ink-soft);max-width:640px}
+  .btn{display:inline-block;background:var(--accent);color:#1a1305;font-weight:700;font-size:17px;padding:16px 34px;border-radius:10px;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(245,158,11,.35)}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+  .center{text-align:center}
+  .center .sub{margin-left:auto;margin-right:auto}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,#0b1026 0%,#14204a 55%,#1d4ed8 130%);color:#fff;padding:96px 0 88px}
+  .hero .kicker{color:#93c5fd}
+  .hero h1{font-size:clamp(34px,5.5vw,56px);max-width:820px;margin-bottom:22px}
+  .hero p{font-size:20px;color:#c7d2ea;max-width:660px;margin-bottom:34px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .proofline{margin-top:28px;font-size:14px;color:#8fa0c9}
+
+  /* Cards */
+  .grid{display:grid;gap:22px}
+  .grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .grid.cols-4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--ink-soft);font-size:15px}
+  .card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#e8edfb;color:var(--brand-dark);border-radius:99px;padding:4px 10px;margin-bottom:12px}
+  .wash{background:var(--wash)}
+
+  /* Steps */
+  .steps{counter-reset:step;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .step::before{counter-increment:step;content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;margin-bottom:14px}
+
+  /* Pricing */
+  .price-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:stretch;margin-top:40px}
+  .plan{border:1px solid var(--line);border-radius:16px;padding:34px 28px;background:var(--paper);display:flex;flex-direction:column}
+  .plan.featured{border:2px solid var(--brand);box-shadow:0 18px 44px rgba(29,78,216,.14);position:relative}
+  .plan.featured .flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 16px;border-radius:99px;white-space:nowrap}
+  .plan h3{font-size:21px;margin-bottom:4px}
+  .plan .who{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+  .plan .price{font-size:38px;font-weight:800;letter-spacing:-.02em}
+  .plan .price small{font-size:15px;font-weight:600;color:var(--ink-soft)}
+  .plan .monthly{font-size:15px;color:var(--ink-soft);margin-bottom:22px}
+  .plan ul{list-style:none;margin:0 0 28px;flex:1}
+  .plan li{padding:8px 0 8px 30px;position:relative;font-size:15px;border-bottom:1px solid var(--wash)}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:700}
+  .plan .btn{text-align:center;width:100%}
+  .plan.featured .btn{background:var(--brand);color:#fff}
+  .plan.featured .btn:hover{box-shadow:0 10px 24px rgba(29,78,216,.35)}
+
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px;background:var(--paper)}
+  details summary{font-weight:700;cursor:pointer;font-size:16px}
+  details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
+
+  /* Final CTA */
+  .final{background:linear-gradient(160deg,#0b1026 0%,#1e3a8a 120%);color:#fff}
+  .final .sub{color:#c7d2ea}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);text-align:center}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     STRIPE PAYMENT LINKS — REPLACE BEFORE GOING LIVE
+     Search for "REPLACE_STRIPE" (3 buy buttons).
+     In each Stripe Payment Link, set the confirmation page to
+     redirect to: /365-os/thank-you.html (this site's thank-you page)
+     ============================================================ -->
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">MyUSA 365 OS &middot; Operator License</span>
+    <h1>Own the Operating System That Runs a Local Market — Not Just Another Tool</h1>
+    <p>One license gets you the full MyUSA 365 OS: your city hub, the uGotLeads AI CRM, and a certification track that unlocks four proven, plug-in offers you can sell in your market from day one.</p>
+    <div class="cta-row">
+      <a class="btn" href="#pricing">Get Your Operator License</a>
+      <a class="btn ghost" href="#modules">See What Plugs In</a>
+    </div>
+    <p class="proofline">One-time license + flat monthly platform fee. No revenue share on what you sell.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">The Problem</span>
+    <h2>Local marketers don’t fail from lack of effort. They fail from stitching tools together.</h2>
+    <p class="sub">A CRM here, a review tool there, a mailer vendor, a receptionist service — every one with its own login, its own invoice, and none of them talking to each other. You spend your margin on subscriptions and your time on duct tape.</p>
+    <div class="grid cols-2" style="margin-top:36px">
+      <div class="card"><h3>The old way</h3><p>6–10 separate subscriptions, manual handoffs between tools, one offer to sell, and every new service means starting from zero.</p></div>
+      <div class="card"><h3>The 365 OS way</h3><p>One operating system, one login, one monthly fee — with certified modules that plug in as new revenue streams the moment you’re ready to sell them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="modules">
+  <div class="wrap">
+    <span class="kicker">What Plugs In</span>
+    <h2>Get certified once. Sell four offers that already run on the OS.</h2>
+    <p class="sub">Your license includes the certification track. Each module you certify on becomes a service you can sell under an established brand — fulfilled through the same OS you already run.</p>
+    <div class="grid cols-4" style="margin-top:36px">
+      <div class="card"><span class="tag">CRM</span><h3>uGotLeads</h3><p>The AI CRM with an Agentic SDR that works your pipeline. Sell it to local businesses as their lead engine.</p></div>
+      <div class="card"><span class="tag">Visibility</span><h3>AI Ranker</h3><p>Get local businesses found by AI search and ranked in their market. A high-demand offer with recurring billing.</p></div>
+      <div class="card"><span class="tag">Front Desk</span><h3>247 US Receptionist</h3><p>An AI receptionist that answers every call, 24/7. Businesses pay monthly to never miss a lead again.</p></div>
+      <div class="card"><span class="tag">Print + Local</span><h3>MyUSA Mini-Billboard</h3><p>The 9x12 EDDM co-op mailer. Sell billboard spots to local businesses on a proven direct-mail product.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">How It Works</span>
+    <h2>From purchase to selling in your market</h2>
+    <div class="steps" style="margin-top:36px">
+      <div class="step"><h3>License the OS</h3><p>Pick your tier below. You get platform access, your operator account, and your onboarding path the same week.</p></div>
+      <div class="step"><h3>Certify on modules</h3><p>Work through the certification track for each module. Certification is what authorizes you to sell it under the brand.</p></div>
+      <div class="step"><h3>Sell &amp; fulfill on the OS</h3><p>Every module you sell plugs into your same OS — one dashboard, one pipeline, no new tools to learn per offer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="pricing">
+  <div class="wrap center">
+    <span class="kicker">Pricing</span>
+    <h2>One-time license. Flat monthly platform fee. Keep what you sell.</h2>
+    <p class="sub">Every tier includes full 365 OS access. Higher tiers unlock more certifications — and more offers you’re authorized to sell.</p>
+
+    <div class="price-grid">
+      <div class="plan">
+        <h3>OS License</h3>
+        <p class="who">For operators who want the platform first</p>
+        <p class="price">$497 <small>one-time</small></p>
+        <p class="monthly">+ $97/mo platform fee</p>
+        <ul>
+          <li>Full MyUSA 365 OS access</li>
+          <li>Your local city hub presence</li>
+          <li>uGotLeads CRM operator seat</li>
+          <li>Operator community access</li>
+          <li>Certification track: 1 module of your choice</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/REPLACE_STRIPE_OS_LICENSE">Start with the OS</a>
+      </div>
+
+      <div class="plan featured">
+        <span class="flag">Most Popular</span>
+        <h3>Certified Operator</h3>
+        <p class="who">For operators ready to sell every module</p>
+        <p class="price">$997 <small>one-time</small></p>
+        <p class="monthly">+ $197/mo platform fee</p>
+        <ul>
+          <li>Everything in OS License</li>
+          <li>Certification track: all 4 modules</li>
+          <li>uGotLeads &middot; AI Ranker &middot; 247 US Receptionist &middot; Mini-Billboard</li>
+          <li>Done-with-you first client launch</li>
+          <li>Operator pricing playbooks for every module</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/REPLACE_STRIPE_CERTIFIED_OPERATOR">Become a Certified Operator</a>
+      </div>
+
+      <div class="plan">
+        <h3>Command Operator</h3>
+        <p class="who">For operators who want speed and direct coaching</p>
+        <p class="price">$1,997 <small>one-time</small></p>
+        <p class="monthly">+ $297/mo platform fee</p>
+        <ul>
+          <li>Everything in Certified Operator</li>
+          <li>Private 1-on-1 onboarding &amp; launch plan</li>
+          <li>Monthly coaching call with the Freedom Architect</li>
+          <li>Priority access to new modules before general release</li>
+          <li>Direct operator support channel</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/REPLACE_STRIPE_COMMAND_OPERATOR">Go Command</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">FAQ</span>
+    <h2>Common questions</h2>
+    <div style="margin-top:28px">
+      <details><summary>What exactly am I buying?</summary><p>A license to operate on MyUSA 365 OS — the platform, your operator account, your city hub presence, and the certification track for the modules included in your tier. Certification authorizes you to sell those modules in your market under the established brands.</p></details>
+      <details><summary>Do I need to be technical?</summary><p>No. The OS handles the software. Your job is the local relationships and the selling — the modules fulfill through the platform.</p></details>
+      <details><summary>Is there a revenue share on what I sell?</summary><p>No. You pay the one-time license and the flat monthly platform fee for your tier. Revenue from the offers you sell in your market is yours.</p></details>
+      <details><summary>Can I upgrade tiers later?</summary><p>Yes. You can move up a tier at any time — you pay the difference in license fee and your monthly moves to the new tier.</p></details>
+      <details><summary>What happens right after I buy?</summary><p>You land on your access page with next steps, and your operator account credentials are delivered to your purchase email within one business day. Certification starts immediately after.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final center">
+  <div class="wrap">
+    <h2>Your market is already buying these services. The only question is from whom.</h2>
+    <p class="sub" style="margin:0 auto 32px">License the OS, get certified, and be the operator who owns the local stack.</p>
+    <a class="btn" href="#pricing">Choose Your License</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 MyUSA 365 OS. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
