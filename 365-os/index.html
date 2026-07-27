@@ -76,6 +76,30 @@
   .final .sub{color:#c7d2ea}
 
   footer{padding:34px 0;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft);text-align:center}
+  footer .powered{margin-top:6px}
+  footer .powered a{color:var(--brand);font-weight:600;text-decoration:none}
+
+  /* Video */
+  .video-wrap{position:relative;max-width:860px;margin:40px auto 0;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,16,38,.30);background:#0b1026}
+  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* Hero ambient motion */
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{position:relative;z-index:1}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+  .orb.one{width:420px;height:420px;background:#2563eb;opacity:.45;top:-120px;right:-80px;animation:drift 14s ease-in-out infinite alternate}
+  .orb.two{width:340px;height:340px;background:#f59e0b;opacity:.22;bottom:-160px;left:-100px;animation:drift 18s ease-in-out infinite alternate-reverse}
+  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.08)}}
+
+  /* Scroll-reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Module icons */
+  .card .ico{width:44px;height:44px;border-radius:12px;background:#e8edfb;color:var(--brand-dark);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .card .ico svg{width:24px;height:24px}
+
+  @media (prefers-reduced-motion:reduce){.orb{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -88,6 +112,8 @@
      ============================================================ -->
 
 <header class="hero">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
   <div class="wrap">
     <span class="kicker">MyUSA 365 OS &middot; Operator License</span>
     <h1>Own the Operating System That Runs a Local Market — Not Just Another Tool</h1>
@@ -99,6 +125,16 @@
     <p class="proofline">One-time license + flat monthly platform fee. No revenue share on what you sell.</p>
   </div>
 </header>
+
+<section class="wash" style="padding-top:64px">
+  <div class="wrap center">
+    <span class="kicker">Watch</span>
+    <h2>See the 365 OS in action</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/wOZxlsb2cHk" title="MyUSA 365 OS overview" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -118,10 +154,10 @@
     <h2>Get certified once. Sell four offers that already run on the OS.</h2>
     <p class="sub">Your license includes the certification track. Each module you certify on becomes a service you can sell under an established brand — fulfilled through the same OS you already run.</p>
     <div class="grid cols-4" style="margin-top:36px">
-      <div class="card"><span class="tag">CRM</span><h3>uGotLeads</h3><p>The AI CRM with an Agentic SDR that works your pipeline. Sell it to local businesses as their lead engine.</p></div>
-      <div class="card"><span class="tag">Visibility</span><h3>AI Ranker</h3><p>Get local businesses found by AI search and ranked in their market. A high-demand offer with recurring billing.</p></div>
-      <div class="card"><span class="tag">Front Desk</span><h3>247 US Receptionist</h3><p>An AI receptionist that answers every call, 24/7. Businesses pay monthly to never miss a lead again.</p></div>
-      <div class="card"><span class="tag">Print + Local</span><h3>MyUSA Mini-Billboard</h3><p>The 9x12 EDDM co-op mailer. Sell billboard spots to local businesses on a proven direct-mail product.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="tag">CRM</span><h3>uGotLeads</h3><p>The AI CRM with an Agentic SDR that works your pipeline. Sell it to local businesses as their lead engine.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="tag">Visibility</span><h3>AI Ranker</h3><p>Get local businesses found by AI search and ranked in their market. A high-demand offer with recurring billing.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span class="tag">Front Desk</span><h3>247 US Receptionist</h3><p>An AI receptionist that answers every call, 24/7. Businesses pay monthly to never miss a lead again.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="tag">Print + Local</span><h3>MyUSA Mini-Billboard</h3><p>The 9x12 EDDM co-op mailer. Sell billboard spots to local businesses on a proven direct-mail product.</p></div>
     </div>
   </div>
 </section>
@@ -219,8 +255,23 @@
 <footer>
   <div class="wrap">
     <p>&copy; 2026 MyUSA 365 OS. All rights reserved.</p>
+    <p class="powered">Powered by <a href="https://myusalocal.com">MyUSA 365 OS</a></p>
   </div>
 </footer>
+
+<script>
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var els = document.querySelectorAll(".card,.step,.plan,section h2,section .kicker,section .sub,.video-wrap,details");
+  els.forEach(function (el) { el.classList.add("reveal"); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
